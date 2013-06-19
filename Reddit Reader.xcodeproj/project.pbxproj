@@ -11,13 +11,11 @@
 		CFD4EBBA177275F000FB9833 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD4EBB9177275F000FB9833 /* Foundation.framework */; };
 		CFD4EBBC177275F000FB9833 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD4EBBB177275F000FB9833 /* CoreGraphics.framework */; };
 		CFD4EBC2177275F000FB9833 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CFD4EBC0177275F000FB9833 /* InfoPlist.strings */; };
-		CFD4EBC4177275F000FB9833 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD4EBC3177275F000FB9833 /* main.m */; };
-		CFD4EBC8177275F000FB9833 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD4EBC7177275F000FB9833 /* AppDelegate.m */; };
-		CFD4EBCA177275F000FB9833 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD4EBC9177275F000FB9833 /* Default.png */; };
-		CFD4EBCC177275F000FB9833 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD4EBCB177275F000FB9833 /* Default@2x.png */; };
-		CFD4EBCE177275F000FB9833 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD4EBCD177275F000FB9833 /* Default-568h@2x.png */; };
-		CFD4EBD1177275F000FB9833 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD4EBD0177275F000FB9833 /* ViewController.m */; };
-		CFD4EBD4177275F000FB9833 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFD4EBD2177275F000FB9833 /* ViewController.xib */; };
+		CFD4EBDC177277F600FB9833 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD4EBDB177277F600FB9833 /* AppDelegate.m */; };
+		CFD4EBE81772797000FB9833 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD4EBE51772797000FB9833 /* main.m */; };
+		CFD4EBE91772797000FB9833 /* Reddit Reader-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CFD4EBE61772797000FB9833 /* Reddit Reader-Info.plist */; };
+		CFD4EBED177279E300FB9833 /* MainPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD4EBEB177279E300FB9833 /* MainPageViewController.m */; };
+		CFD4EBEE177279E300FB9833 /* MainPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFD4EBEC177279E300FB9833 /* MainPageViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,18 +23,15 @@
 		CFD4EBB7177275F000FB9833 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CFD4EBB9177275F000FB9833 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CFD4EBBB177275F000FB9833 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		CFD4EBBF177275F000FB9833 /* Reddit Reader-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Reddit Reader-Info.plist"; sourceTree = "<group>"; };
 		CFD4EBC1177275F000FB9833 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		CFD4EBC3177275F000FB9833 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		CFD4EBC5177275F000FB9833 /* Reddit Reader-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Reddit Reader-Prefix.pch"; sourceTree = "<group>"; };
-		CFD4EBC6177275F000FB9833 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		CFD4EBC7177275F000FB9833 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CFD4EBC9177275F000FB9833 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		CFD4EBCB177275F000FB9833 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		CFD4EBCD177275F000FB9833 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		CFD4EBCF177275F000FB9833 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		CFD4EBD0177275F000FB9833 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		CFD4EBD3177275F000FB9833 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		CFD4EBDA177277F600FB9833 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
+		CFD4EBDB177277F600FB9833 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
+		CFD4EBE51772797000FB9833 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Supporting Files/main.m"; sourceTree = "<group>"; };
+		CFD4EBE61772797000FB9833 /* Reddit Reader-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Reddit Reader-Info.plist"; path = "Supporting Files/Reddit Reader-Info.plist"; sourceTree = "<group>"; };
+		CFD4EBE71772797000FB9833 /* Reddit Reader-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Reddit Reader-Prefix.pch"; path = "Supporting Files/Reddit Reader-Prefix.pch"; sourceTree = "<group>"; };
+		CFD4EBEA177279E300FB9833 /* MainPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainPageViewController.h; path = Classes/MainPage/MainPageViewController.h; sourceTree = "<group>"; };
+		CFD4EBEB177279E300FB9833 /* MainPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainPageViewController.m; path = Classes/MainPage/MainPageViewController.m; sourceTree = "<group>"; };
+		CFD4EBEC177279E300FB9833 /* MainPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainPageViewController.xib; path = Classes/MainPage/MainPageViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,11 +78,8 @@
 		CFD4EBBD177275F000FB9833 /* Reddit Reader */ = {
 			isa = PBXGroup;
 			children = (
-				CFD4EBC6177275F000FB9833 /* AppDelegate.h */,
-				CFD4EBC7177275F000FB9833 /* AppDelegate.m */,
-				CFD4EBCF177275F000FB9833 /* ViewController.h */,
-				CFD4EBD0177275F000FB9833 /* ViewController.m */,
-				CFD4EBD2177275F000FB9833 /* ViewController.xib */,
+				CFD4EBE21772782F00FB9833 /* Classes */,
+				CFD4EBE41772785A00FB9833 /* Images */,
 				CFD4EBBE177275F000FB9833 /* Supporting Files */,
 			);
 			path = "Reddit Reader";
@@ -96,15 +88,39 @@
 		CFD4EBBE177275F000FB9833 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CFD4EBBF177275F000FB9833 /* Reddit Reader-Info.plist */,
+				CFD4EBE51772797000FB9833 /* main.m */,
+				CFD4EBE61772797000FB9833 /* Reddit Reader-Info.plist */,
+				CFD4EBE71772797000FB9833 /* Reddit Reader-Prefix.pch */,
 				CFD4EBC0177275F000FB9833 /* InfoPlist.strings */,
-				CFD4EBC3177275F000FB9833 /* main.m */,
-				CFD4EBC5177275F000FB9833 /* Reddit Reader-Prefix.pch */,
-				CFD4EBC9177275F000FB9833 /* Default.png */,
-				CFD4EBCB177275F000FB9833 /* Default@2x.png */,
-				CFD4EBCD177275F000FB9833 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CFD4EBE21772782F00FB9833 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				CFD4EBDA177277F600FB9833 /* AppDelegate.h */,
+				CFD4EBDB177277F600FB9833 /* AppDelegate.m */,
+				CFD4EBE31772783600FB9833 /* MainPage */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		CFD4EBE31772783600FB9833 /* MainPage */ = {
+			isa = PBXGroup;
+			children = (
+				CFD4EBEA177279E300FB9833 /* MainPageViewController.h */,
+				CFD4EBEB177279E300FB9833 /* MainPageViewController.m */,
+				CFD4EBEC177279E300FB9833 /* MainPageViewController.xib */,
+			);
+			name = MainPage;
+			sourceTree = "<group>";
+		};
+		CFD4EBE41772785A00FB9833 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,10 +175,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFD4EBC2177275F000FB9833 /* InfoPlist.strings in Resources */,
-				CFD4EBCA177275F000FB9833 /* Default.png in Resources */,
-				CFD4EBCC177275F000FB9833 /* Default@2x.png in Resources */,
-				CFD4EBCE177275F000FB9833 /* Default-568h@2x.png in Resources */,
-				CFD4EBD4177275F000FB9833 /* ViewController.xib in Resources */,
+				CFD4EBE91772797000FB9833 /* Reddit Reader-Info.plist in Resources */,
+				CFD4EBEE177279E300FB9833 /* MainPageViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,9 +187,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFD4EBC4177275F000FB9833 /* main.m in Sources */,
-				CFD4EBC8177275F000FB9833 /* AppDelegate.m in Sources */,
-				CFD4EBD1177275F000FB9833 /* ViewController.m in Sources */,
+				CFD4EBDC177277F600FB9833 /* AppDelegate.m in Sources */,
+				CFD4EBE81772797000FB9833 /* main.m in Sources */,
+				CFD4EBED177279E300FB9833 /* MainPageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,14 +202,6 @@
 				CFD4EBC1177275F000FB9833 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		CFD4EBD2177275F000FB9833 /* ViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CFD4EBD3177275F000FB9833 /* en */,
-			);
-			name = ViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -261,8 +267,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Reddit Reader/Reddit Reader-Prefix.pch";
-				INFOPLIST_FILE = "Reddit Reader/Reddit Reader-Info.plist";
+				GCC_PREFIX_HEADER = "Reddit Reader/Supporting Files/Reddit Reader-Prefix.pch";
+				INFOPLIST_FILE = "Reddit Reader/Supporting Files/Reddit Reader-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -272,8 +278,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Reddit Reader/Reddit Reader-Prefix.pch";
-				INFOPLIST_FILE = "Reddit Reader/Reddit Reader-Info.plist";
+				GCC_PREFIX_HEADER = "Reddit Reader/Supporting Files/Reddit Reader-Prefix.pch";
+				INFOPLIST_FILE = "Reddit Reader/Supporting Files/Reddit Reader-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
