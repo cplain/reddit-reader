@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 seaplain. All rights reserved.
 //
 
-#define REDDIT_URL @"http://www.reddit.com"
-#define SPECIFIC_SUBREDDIT_URL @"/r/shittyaskscience/top.json"
+#define REDDIT_URL_START @"http://www.reddit.com/r/"
+#define REDDIT_URL_END @"/top.json"
 #import "MainPageViewController.h"
 #import "SBJson.h"
 
@@ -19,18 +19,21 @@
 
 NSMutableArray *mainDataArray;
 NSMutableArray *linkNamesArray;
+NSString *subreddit = @"shityaskscience";
+UIAlertView *myAlertView;
+
 @synthesize responseData;
 @synthesize tableView;
+@synthesize textView;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self recieveJSON];
-}
+    [self setUpLoadingIndicator];}
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [self populateList];
+    [self recieveJSON];
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,9 +41,23 @@ NSMutableArray *linkNamesArray;
     [super didReceiveMemoryWarning];
 }
 
+-(void)setUpLoadingIndicator
+{
+    myAlertView = [[UIAlertView alloc] initWithTitle:@"Loading" message:@"\n"
+                                            delegate:nil
+                                   cancelButtonTitle:nil
+                                   otherButtonTitles:nil, nil];
+    
+    UIActivityIndicatorView *loading = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    loading.center = CGPointMake(139.5, 75.5);
+    [myAlertView addSubview:loading];
+    [loading startAnimating];
+}
+
 -(void)recieveJSON
 {
-    NSString *url = [NSString stringWithFormat:@"%@%@" , REDDIT_URL, SPECIFIC_SUBREDDIT_URL];
+    [myAlertView show];
+    NSString *url = [NSString stringWithFormat:@"%@%@%@" , REDDIT_URL_START, subreddit, REDDIT_URL_END];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
@@ -97,6 +114,11 @@ NSMutableArray *linkNamesArray;
     
     NSLog(@"linkNamesArray: %@", linkNamesArray);
     [self.tableView reloadData];
+    self.title = [NSString stringWithFormat:@"/r/%@", subreddit];
+    [myAlertView dismissWithClickedButtonIndex:0 animated:YES];
+    
+    if ([linkNamesArray count] == 0)
+        [self showRefreshDialog];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -122,6 +144,40 @@ NSMutableArray *linkNamesArray;
 - (void)tableView: (UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath
 {
 
+}
+
+-(void)showRefreshDialog
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops!" message:@"Looks like we didn't recieve anything from that subreddit"
+                                                   delegate:self
+                                                   cancelButtonTitle:@"Cancel"
+                                                   otherButtonTitles:@"Retry", nil];
+    
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex) {
+        case 0:
+            break;
+            
+        case 1:
+            [self recieveJSON];
+            break;
+            
+        default:
+            break;
+    }
+
+}
+
+-(IBAction)goToSubreddit:(id)sender
+{
+    subreddit = self.textView.text;
+    [self recieveJSON];
+    self.textView.text = @"";
+    [self.textView endEditing:YES];
 }
 
 @end

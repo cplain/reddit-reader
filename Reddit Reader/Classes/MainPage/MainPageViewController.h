@@ -11,5 +11,8 @@
 @interface MainPageViewController : UIViewController
 
 @property(nonatomic, retain)IBOutlet UITableView *tableView;
+@property(nonatomic, retain)IBOutlet UITextField *textView;
+
+- (IBAction) goToSubreddit:(id)sender;
 
 @end
