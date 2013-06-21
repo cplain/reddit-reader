@@ -129,6 +129,12 @@ UIAlertView *myAlertView;
 - (void)tableView: (UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath
 {
     CommentsPageViewController *comments = [[CommentsPageViewController alloc]initWithNibName:@"CommentsPageViewController" bundle:nil];
+    
+    NSString *threadID = [[mainDataArray objectAtIndex:indexPath.row]valueForKey:@"id"];
+    NSString *urlString = [NSString stringWithFormat:@"http://www.reddit.com/r/%@/comments/%@.json" , subreddit, threadID];
+    NSURL *url = [NSURL URLWithString:urlString];
+    
+    comments.commentThreadUrl = url;
     [self.navigationController pushViewController:comments animated:YES];
 }
 

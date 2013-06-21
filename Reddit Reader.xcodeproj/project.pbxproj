@@ -252,10 +252,10 @@
 		CFD4EBE21772782F00FB9833 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				CFD4EBE31772783600FB9833 /* MainPage */,
 				CF2CD9AC1773F793005E62D9 /* CommentsPage */,
 				CFD4EBDA177277F600FB9833 /* AppDelegate.h */,
 				CFD4EBDB177277F600FB9833 /* AppDelegate.m */,
-				CFD4EBE31772783600FB9833 /* MainPage */,
 			);
 			name = Classes;
 			sourceTree = "<group>";

@@ -10,4 +10,6 @@
 
 @interface CommentsPageViewController : UIViewController
 
+@property (nonatomic, retain) NSURL *commentThreadUrl;
+
 @end
