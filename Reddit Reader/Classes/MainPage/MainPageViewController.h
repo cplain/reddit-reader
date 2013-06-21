@@ -12,7 +12,8 @@
 
 @property(nonatomic, retain)IBOutlet UITableView *tableView;
 @property(nonatomic, retain)IBOutlet UITextField *textView;
-
+@property(nonatomic, retain)IBOutlet UISegmentedControl *segmentedControl;
+ 
 - (IBAction) goToSubreddit:(id)sender;
 
 @end

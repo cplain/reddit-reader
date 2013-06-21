@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 seaplain. All rights reserved.
 //
 
-#define REDDIT_URL_START @"http://www.reddit.com/r/"
-#define REDDIT_URL_END @"/top.json"
 #import "MainPageViewController.h"
 #import "SBJson.h"
 
@@ -19,17 +17,20 @@
 
 NSMutableArray *mainDataArray;
 NSMutableArray *linkNamesArray;
-NSString *subreddit = @"shityaskscience";
+NSString *subreddit = @"askreddit";
 UIAlertView *myAlertView;
 
 @synthesize responseData;
 @synthesize tableView;
 @synthesize textView;
+@synthesize segmentedControl;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setUpLoadingIndicator];}
+    self.textView.text = subreddit;
+    [self setUpLoadingIndicator];
+}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -57,9 +58,28 @@ UIAlertView *myAlertView;
 -(void)recieveJSON
 {
     [myAlertView show];
-    NSString *url = [NSString stringWithFormat:@"%@%@%@" , REDDIT_URL_START, subreddit, REDDIT_URL_END];
+    NSString *viewCat = [self getViewCat];
+    NSString *url = [NSString stringWithFormat:@"http://www.reddit.com/r/%@/%@.json" , subreddit, viewCat];
+    NSLog(@"URL: %@", url);
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     [[NSURLConnection alloc] initWithRequest:request delegate:self];
+}
+
+-(NSString *)getViewCat
+{
+    switch (segmentedControl.selectedSegmentIndex) {
+        case 0:
+            return @"hot";
+        
+        case 1:
+            return @"top";
+            
+        case 2:
+            return @"new";
+            
+        default:
+            return @"hot";
+    }
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -70,7 +90,7 @@ UIAlertView *myAlertView;
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-    NSLog(@"didReceiveData: %@", data);
+    //NSLog(@"didReceiveData: %@", data);
     self.responseData = [[NSMutableData alloc] initWithData:data];
 }
 
@@ -112,7 +132,7 @@ UIAlertView *myAlertView;
         [linkNamesArray addObject:title];
     }
     
-    NSLog(@"linkNamesArray: %@", linkNamesArray);
+    //NSLog(@"linkNamesArray: %@", linkNamesArray);
     [self.tableView reloadData];
     self.title = [NSString stringWithFormat:@"/r/%@", subreddit];
     [myAlertView dismissWithClickedButtonIndex:0 animated:YES];
@@ -176,7 +196,6 @@ UIAlertView *myAlertView;
 {
     subreddit = self.textView.text;
     [self recieveJSON];
-    self.textView.text = @"";
     [self.textView endEditing:YES];
 }
 
