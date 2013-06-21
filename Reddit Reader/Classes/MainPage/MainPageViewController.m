@@ -130,11 +130,8 @@ UIAlertView *myAlertView;
 {
     CommentsPageViewController *comments = [[CommentsPageViewController alloc]initWithNibName:@"CommentsPageViewController" bundle:nil];
     
-    NSString *threadID = [[mainDataArray objectAtIndex:indexPath.row]valueForKey:@"id"];
-    NSString *urlString = [NSString stringWithFormat:@"http://www.reddit.com/r/%@/comments/%@.json" , subreddit, threadID];
-    NSURL *url = [NSURL URLWithString:urlString];
-    
-    comments.commentThreadUrl = url;
+    NSDictionary *dict = [[mainDataArray objectAtIndex:indexPath.row]valueForKey:@"data"];
+    comments.commentThreadUrl = [NSURL URLWithString:[dict valueForKey:@"url"]];
     [self.navigationController pushViewController:comments animated:YES];
 }
 

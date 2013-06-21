@@ -11,5 +11,6 @@
 @interface CommentsPageViewController : UIViewController
 
 @property (nonatomic, retain) NSURL *commentThreadUrl;
+@property (nonatomic, retain) IBOutlet UITextView *tempDisplay;
 
 @end

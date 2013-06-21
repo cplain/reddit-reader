@@ -17,6 +17,7 @@
 
 UIAlertView *myAlertView;
 @synthesize commentThreadUrl;
+@synthesize tempDisplay;
 
 
 - (void)viewDidLoad
@@ -56,6 +57,8 @@ UIAlertView *myAlertView;
 {
     //Do something here
     [myAlertView dismissWithClickedButtonIndex:0 animated:YES];
+    NSString *responseString = [request responseString];
+    [self.tempDisplay setText:responseString];
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request
