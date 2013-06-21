@@ -28,12 +28,12 @@ UIAlertView *myAlertView;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.textView.text = subreddit;
     [self setUpLoadingIndicator];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    self.textView.text = subreddit;
     [self recieveJSON];
 }
 
@@ -45,9 +45,9 @@ UIAlertView *myAlertView;
 -(void)setUpLoadingIndicator
 {
     myAlertView = [[UIAlertView alloc] initWithTitle:@"Loading" message:@"\n"
-                                            delegate:nil
-                                   cancelButtonTitle:nil
-                                   otherButtonTitles:nil, nil];
+                                        delegate:nil
+                                        cancelButtonTitle:nil
+                                        otherButtonTitles:nil, nil];
     
     UIActivityIndicatorView *loading = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     loading.center = CGPointMake(139.5, 75.5);
@@ -58,14 +58,12 @@ UIAlertView *myAlertView;
 -(void)recieveJSON
 {
     [myAlertView show];
-    NSString *viewCat = [self getViewCat];
-    NSString *url = [NSString stringWithFormat:@"http://www.reddit.com/r/%@/%@.json" , subreddit, viewCat];
-    NSLog(@"URL: %@", url);
-    
+    NSString *url = [NSString stringWithFormat:@"http://www.reddit.com/r/%@/%@.json" , subreddit, [self getViewCat]];
+    NSLog(@"URL: %@", url);    
+
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:url]];
     [request setDelegate:self];
     [request startAsynchronous];
-    
 }
 
 -(NSString *)getViewCat
@@ -93,11 +91,9 @@ UIAlertView *myAlertView;
     for(int i = 0; i < [mainDataArray count]; i++)
     {
         tempDict = [[mainDataArray objectAtIndex:i]valueForKey:@"data"];
-        NSString *title = [tempDict valueForKey:@"title"];
-        [linkNamesArray addObject:title];
+        [linkNamesArray addObject:[tempDict valueForKey:@"title"]];
     }
     
-    //NSLog(@"linkNamesArray: %@", linkNamesArray);
     [self.tableView reloadData];
     self.title = [NSString stringWithFormat:@"/r/%@", subreddit];
     [myAlertView dismissWithClickedButtonIndex:0 animated:YES];
