@@ -17,6 +17,8 @@
 		CF048DC017729DCC00ECA9EA /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = CF048DB417729DCC00ECA9EA /* SBJsonStreamWriterAccumulator.m */; };
 		CF048DC117729DCC00ECA9EA /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = CF048DB617729DCC00ECA9EA /* SBJsonStreamWriterState.m */; };
 		CF048DC217729DCC00ECA9EA /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF048DB817729DCC00ECA9EA /* SBJsonWriter.m */; };
+		CF2CD9B01773F7C3005E62D9 /* CommentsPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2CD9AE1773F7C3005E62D9 /* CommentsPageViewController.m */; };
+		CF2CD9B11773F7C3005E62D9 /* CommentsPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF2CD9AF1773F7C3005E62D9 /* CommentsPageViewController.xib */; };
 		CFD4EBB8177275F000FB9833 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD4EBB7177275F000FB9833 /* UIKit.framework */; };
 		CFD4EBBA177275F000FB9833 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD4EBB9177275F000FB9833 /* Foundation.framework */; };
 		CFD4EBBC177275F000FB9833 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD4EBBB177275F000FB9833 /* CoreGraphics.framework */; };
@@ -50,6 +52,9 @@
 		CF048DB617729DCC00ECA9EA /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterState.m; sourceTree = "<group>"; };
 		CF048DB717729DCC00ECA9EA /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		CF048DB817729DCC00ECA9EA /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		CF2CD9AD1773F7C3005E62D9 /* CommentsPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommentsPageViewController.h; path = Classes/CommentsPage/CommentsPageViewController.h; sourceTree = "<group>"; };
+		CF2CD9AE1773F7C3005E62D9 /* CommentsPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommentsPageViewController.m; path = Classes/CommentsPage/CommentsPageViewController.m; sourceTree = "<group>"; };
+		CF2CD9AF1773F7C3005E62D9 /* CommentsPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CommentsPageViewController.xib; path = Classes/CommentsPage/CommentsPageViewController.xib; sourceTree = "<group>"; };
 		CFD4EBB4177275F000FB9833 /* Reddit Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reddit Reader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFD4EBB7177275F000FB9833 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CFD4EBB9177275F000FB9833 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -108,6 +113,16 @@
 			path = "Reddit Reader/External/JSON";
 			sourceTree = "<group>";
 		};
+		CF2CD9AC1773F793005E62D9 /* CommentsPage */ = {
+			isa = PBXGroup;
+			children = (
+				CF2CD9AD1773F7C3005E62D9 /* CommentsPageViewController.h */,
+				CF2CD9AE1773F7C3005E62D9 /* CommentsPageViewController.m */,
+				CF2CD9AF1773F7C3005E62D9 /* CommentsPageViewController.xib */,
+			);
+			name = CommentsPage;
+			sourceTree = "<group>";
+		};
 		CFD4EBAB177275F000FB9833 = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +175,7 @@
 		CFD4EBE21772782F00FB9833 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				CF2CD9AC1773F793005E62D9 /* CommentsPage */,
 				CFD4EBDA177277F600FB9833 /* AppDelegate.h */,
 				CFD4EBDB177277F600FB9833 /* AppDelegate.m */,
 				CFD4EBE31772783600FB9833 /* MainPage */,
@@ -238,6 +254,7 @@
 				CFD4EBC2177275F000FB9833 /* InfoPlist.strings in Resources */,
 				CFD4EBE91772797000FB9833 /* Reddit Reader-Info.plist in Resources */,
 				CFD4EBEE177279E300FB9833 /* MainPageViewController.xib in Resources */,
+				CF2CD9B11773F7C3005E62D9 /* CommentsPageViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +278,7 @@
 				CF048DC017729DCC00ECA9EA /* SBJsonStreamWriterAccumulator.m in Sources */,
 				CF048DC117729DCC00ECA9EA /* SBJsonStreamWriterState.m in Sources */,
 				CF048DC217729DCC00ECA9EA /* SBJsonWriter.m in Sources */,
+				CF2CD9B01773F7C3005E62D9 /* CommentsPageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

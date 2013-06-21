@@ -7,6 +7,7 @@
 //
 
 #import "MainPageViewController.h"
+#import "CommentsPageViewController.h"
 #import "SBJson.h"
 
 @interface MainPageViewController ()
@@ -108,7 +109,7 @@ UIAlertView *myAlertView;
     NSLog(@"Succeeded! Received %d bytes of data",[self.responseData length]);
     
     // convert to JSON
-    SBJsonParser *objJson = [[SBJsonParser alloc] init];//
+    SBJsonParser *objJson = [[SBJsonParser alloc] init];
     NSDictionary *data = (NSDictionary*)[objJson objectWithData:self.responseData];
     NSDictionary *secondData = [data valueForKey:@"data"];
     mainDataArray = [secondData valueForKey:@"children"];
@@ -163,7 +164,8 @@ UIAlertView *myAlertView;
 
 - (void)tableView: (UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath
 {
-
+    CommentsPageViewController *comments = [[CommentsPageViewController alloc]initWithNibName:@"CommentsPageViewController" bundle:nil];
+    [self.navigationController pushViewController:comments animated:YES];
 }
 
 -(void)showRefreshDialog
