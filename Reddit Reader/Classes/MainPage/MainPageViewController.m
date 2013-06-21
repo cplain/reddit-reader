@@ -12,7 +12,6 @@
 #import "SBJson.h"
 
 @interface MainPageViewController ()
-@property (nonatomic, strong)NSMutableData *responseData;
 @end
 
 @implementation MainPageViewController
@@ -22,7 +21,6 @@ NSMutableArray *linkNamesArray;
 NSString *subreddit = @"askreddit";
 UIAlertView *myAlertView;
 
-@synthesize responseData;
 @synthesize tableView;
 @synthesize textView;
 @synthesize segmentedControl;
