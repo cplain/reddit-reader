@@ -19,6 +19,19 @@
 		CF048DC217729DCC00ECA9EA /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF048DB817729DCC00ECA9EA /* SBJsonWriter.m */; };
 		CF2CD9B01773F7C3005E62D9 /* CommentsPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2CD9AE1773F7C3005E62D9 /* CommentsPageViewController.m */; };
 		CF2CD9B11773F7C3005E62D9 /* CommentsPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF2CD9AF1773F7C3005E62D9 /* CommentsPageViewController.xib */; };
+		CF2CD9D417741A10005E62D9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2CD9D317741A10005E62D9 /* SystemConfiguration.framework */; };
+		CF2CDA0B17741C3C005E62D9 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2CD9F817741C3B005E62D9 /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CF2CDA0C17741C3C005E62D9 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2CD9FB17741C3B005E62D9 /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CF2CDA0D17741C3C005E62D9 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2CD9FD17741C3B005E62D9 /* ASIDataDecompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CF2CDA0E17741C3C005E62D9 /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2CD9FF17741C3B005E62D9 /* ASIDownloadCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CF2CDA0F17741C3C005E62D9 /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2CDA0117741C3B005E62D9 /* ASIFormDataRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CF2CDA1017741C3C005E62D9 /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2CDA0317741C3B005E62D9 /* ASIHTTPRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CF2CDA1117741C3C005E62D9 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2CDA0717741C3B005E62D9 /* ASIInputStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CF2CDA1217741C3C005E62D9 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2CDA0917741C3C005E62D9 /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CF2CDA1417741CC6005E62D9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2CDA1317741CC6005E62D9 /* QuartzCore.framework */; };
+		CF2CDA1617741DA5005E62D9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2CDA1517741DA5005E62D9 /* CFNetwork.framework */; };
+		CF2CDA1817741DBB005E62D9 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2CDA1717741DBB005E62D9 /* MobileCoreServices.framework */; };
+		CF2CDA1C17741F91005E62D9 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2CDA1B17741F91005E62D9 /* libz.dylib */; };
 		CFD4EBB8177275F000FB9833 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD4EBB7177275F000FB9833 /* UIKit.framework */; };
 		CFD4EBBA177275F000FB9833 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD4EBB9177275F000FB9833 /* Foundation.framework */; };
 		CFD4EBBC177275F000FB9833 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD4EBBB177275F000FB9833 /* CoreGraphics.framework */; };
@@ -55,6 +68,31 @@
 		CF2CD9AD1773F7C3005E62D9 /* CommentsPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommentsPageViewController.h; path = Classes/CommentsPage/CommentsPageViewController.h; sourceTree = "<group>"; };
 		CF2CD9AE1773F7C3005E62D9 /* CommentsPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommentsPageViewController.m; path = Classes/CommentsPage/CommentsPageViewController.m; sourceTree = "<group>"; };
 		CF2CD9AF1773F7C3005E62D9 /* CommentsPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CommentsPageViewController.xib; path = Classes/CommentsPage/CommentsPageViewController.xib; sourceTree = "<group>"; };
+		CF2CD9D317741A10005E62D9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CF2CD9F717741C3B005E62D9 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
+		CF2CD9F817741C3B005E62D9 /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
+		CF2CD9F917741C3B005E62D9 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
+		CF2CD9FA17741C3B005E62D9 /* ASIDataCompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDataCompressor.h; sourceTree = "<group>"; };
+		CF2CD9FB17741C3B005E62D9 /* ASIDataCompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDataCompressor.m; sourceTree = "<group>"; };
+		CF2CD9FC17741C3B005E62D9 /* ASIDataDecompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDataDecompressor.h; sourceTree = "<group>"; };
+		CF2CD9FD17741C3B005E62D9 /* ASIDataDecompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDataDecompressor.m; sourceTree = "<group>"; };
+		CF2CD9FE17741C3B005E62D9 /* ASIDownloadCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDownloadCache.h; sourceTree = "<group>"; };
+		CF2CD9FF17741C3B005E62D9 /* ASIDownloadCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDownloadCache.m; sourceTree = "<group>"; };
+		CF2CDA0017741C3B005E62D9 /* ASIFormDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIFormDataRequest.h; sourceTree = "<group>"; };
+		CF2CDA0117741C3B005E62D9 /* ASIFormDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIFormDataRequest.m; sourceTree = "<group>"; };
+		CF2CDA0217741C3B005E62D9 /* ASIHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequest.h; sourceTree = "<group>"; };
+		CF2CDA0317741C3B005E62D9 /* ASIHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIHTTPRequest.m; sourceTree = "<group>"; };
+		CF2CDA0417741C3B005E62D9 /* ASIHTTPRequestConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestConfig.h; sourceTree = "<group>"; };
+		CF2CDA0517741C3B005E62D9 /* ASIHTTPRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestDelegate.h; sourceTree = "<group>"; };
+		CF2CDA0617741C3B005E62D9 /* ASIInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIInputStream.h; sourceTree = "<group>"; };
+		CF2CDA0717741C3B005E62D9 /* ASIInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIInputStream.m; sourceTree = "<group>"; };
+		CF2CDA0817741C3C005E62D9 /* ASINetworkQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASINetworkQueue.h; sourceTree = "<group>"; };
+		CF2CDA0917741C3C005E62D9 /* ASINetworkQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASINetworkQueue.m; sourceTree = "<group>"; };
+		CF2CDA0A17741C3C005E62D9 /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIProgressDelegate.h; sourceTree = "<group>"; };
+		CF2CDA1317741CC6005E62D9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CF2CDA1517741DA5005E62D9 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		CF2CDA1717741DBB005E62D9 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		CF2CDA1B17741F91005E62D9 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		CFD4EBB4177275F000FB9833 /* Reddit Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reddit Reader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFD4EBB7177275F000FB9833 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CFD4EBB9177275F000FB9833 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -75,6 +113,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF2CDA1C17741F91005E62D9 /* libz.dylib in Frameworks */,
+				CF2CDA1817741DBB005E62D9 /* MobileCoreServices.framework in Frameworks */,
+				CF2CDA1617741DA5005E62D9 /* CFNetwork.framework in Frameworks */,
+				CF2CDA1417741CC6005E62D9 /* QuartzCore.framework in Frameworks */,
+				CF2CD9D417741A10005E62D9 /* SystemConfiguration.framework in Frameworks */,
 				CFD4EBB8177275F000FB9833 /* UIKit.framework in Frameworks */,
 				CFD4EBBA177275F000FB9833 /* Foundation.framework in Frameworks */,
 				CFD4EBBC177275F000FB9833 /* CoreGraphics.framework in Frameworks */,
@@ -123,9 +166,38 @@
 			name = CommentsPage;
 			sourceTree = "<group>";
 		};
+		CF2CD9F617741C3B005E62D9 /* ASI */ = {
+			isa = PBXGroup;
+			children = (
+				CF2CD9F717741C3B005E62D9 /* ASIAuthenticationDialog.h */,
+				CF2CD9F817741C3B005E62D9 /* ASIAuthenticationDialog.m */,
+				CF2CD9F917741C3B005E62D9 /* ASICacheDelegate.h */,
+				CF2CD9FA17741C3B005E62D9 /* ASIDataCompressor.h */,
+				CF2CD9FB17741C3B005E62D9 /* ASIDataCompressor.m */,
+				CF2CD9FC17741C3B005E62D9 /* ASIDataDecompressor.h */,
+				CF2CD9FD17741C3B005E62D9 /* ASIDataDecompressor.m */,
+				CF2CD9FE17741C3B005E62D9 /* ASIDownloadCache.h */,
+				CF2CD9FF17741C3B005E62D9 /* ASIDownloadCache.m */,
+				CF2CDA0017741C3B005E62D9 /* ASIFormDataRequest.h */,
+				CF2CDA0117741C3B005E62D9 /* ASIFormDataRequest.m */,
+				CF2CDA0217741C3B005E62D9 /* ASIHTTPRequest.h */,
+				CF2CDA0317741C3B005E62D9 /* ASIHTTPRequest.m */,
+				CF2CDA0417741C3B005E62D9 /* ASIHTTPRequestConfig.h */,
+				CF2CDA0517741C3B005E62D9 /* ASIHTTPRequestDelegate.h */,
+				CF2CDA0617741C3B005E62D9 /* ASIInputStream.h */,
+				CF2CDA0717741C3B005E62D9 /* ASIInputStream.m */,
+				CF2CDA0817741C3C005E62D9 /* ASINetworkQueue.h */,
+				CF2CDA0917741C3C005E62D9 /* ASINetworkQueue.m */,
+				CF2CDA0A17741C3C005E62D9 /* ASIProgressDelegate.h */,
+			);
+			name = ASI;
+			path = "Reddit Reader/External/ASI";
+			sourceTree = "<group>";
+		};
 		CFD4EBAB177275F000FB9833 = {
 			isa = PBXGroup;
 			children = (
+				CF2CDA1B17741F91005E62D9 /* libz.dylib */,
 				CFD4EBBD177275F000FB9833 /* Reddit Reader */,
 				CFD4EBB6177275F000FB9833 /* Frameworks */,
 				CFD4EBB5177275F000FB9833 /* Products */,
@@ -144,6 +216,11 @@
 			isa = PBXGroup;
 			children = (
 				CF048DA317729DCC00ECA9EA /* JSON */,
+				CF2CD9F617741C3B005E62D9 /* ASI */,
+				CF2CDA1317741CC6005E62D9 /* QuartzCore.framework */,
+				CF2CDA1717741DBB005E62D9 /* MobileCoreServices.framework */,
+				CF2CDA1517741DA5005E62D9 /* CFNetwork.framework */,
+				CF2CD9D317741A10005E62D9 /* SystemConfiguration.framework */,
 				CFD4EBB7177275F000FB9833 /* UIKit.framework */,
 				CFD4EBB9177275F000FB9833 /* Foundation.framework */,
 				CFD4EBBB177275F000FB9833 /* CoreGraphics.framework */,
@@ -279,6 +356,14 @@
 				CF048DC117729DCC00ECA9EA /* SBJsonStreamWriterState.m in Sources */,
 				CF048DC217729DCC00ECA9EA /* SBJsonWriter.m in Sources */,
 				CF2CD9B01773F7C3005E62D9 /* CommentsPageViewController.m in Sources */,
+				CF2CDA0B17741C3C005E62D9 /* ASIAuthenticationDialog.m in Sources */,
+				CF2CDA0C17741C3C005E62D9 /* ASIDataCompressor.m in Sources */,
+				CF2CDA0D17741C3C005E62D9 /* ASIDataDecompressor.m in Sources */,
+				CF2CDA0E17741C3C005E62D9 /* ASIDownloadCache.m in Sources */,
+				CF2CDA0F17741C3C005E62D9 /* ASIFormDataRequest.m in Sources */,
+				CF2CDA1017741C3C005E62D9 /* ASIHTTPRequest.m in Sources */,
+				CF2CDA1117741C3C005E62D9 /* ASIInputStream.m in Sources */,
+				CF2CDA1217741C3C005E62D9 /* ASINetworkQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +443,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Reddit Reader/Supporting Files/Reddit Reader-Prefix.pch";
 				INFOPLIST_FILE = "Reddit Reader/Supporting Files/Reddit Reader-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)/usr/lib/system\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -369,6 +458,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Reddit Reader/Supporting Files/Reddit Reader-Prefix.pch";
 				INFOPLIST_FILE = "Reddit Reader/Supporting Files/Reddit Reader-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)/usr/lib/system\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

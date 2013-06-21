@@ -8,6 +8,7 @@
 
 #import "MainPageViewController.h"
 #import "CommentsPageViewController.h"
+#import "ASIHTTPRequest.h"
 #import "SBJson.h"
 
 @interface MainPageViewController ()
@@ -62,8 +63,11 @@ UIAlertView *myAlertView;
     NSString *viewCat = [self getViewCat];
     NSString *url = [NSString stringWithFormat:@"http://www.reddit.com/r/%@/%@.json" , subreddit, viewCat];
     NSLog(@"URL: %@", url);
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-    [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:url]];
+    [request setDelegate:self];
+    [request startAsynchronous];
+    
 }
 
 -(NSString *)getViewCat
@@ -81,44 +85,6 @@ UIAlertView *myAlertView;
         default:
             return @"hot";
     }
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
-{
-    NSLog(@"didReceiveResponse");
-    [self.responseData setLength:0];
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
-    //NSLog(@"didReceiveData: %@", data);
-    self.responseData = [[NSMutableData alloc] initWithData:data];
-}
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-{
-    NSLog(@"didFailWithError");
-    NSLog([NSString stringWithFormat:@"Connection failed: %@", [error description]]);
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection
-{
-    mainDataArray = [[NSMutableArray alloc]init];
-    
-    NSLog(@"connectionDidFinishLoading");
-    NSLog(@"Succeeded! Received %d bytes of data",[self.responseData length]);
-    
-    // convert to JSON
-    SBJsonParser *objJson = [[SBJsonParser alloc] init];
-    NSDictionary *data = (NSDictionary*)[objJson objectWithData:self.responseData];
-    NSDictionary *secondData = [data valueForKey:@"data"];
-    mainDataArray = [secondData valueForKey:@"children"];
-    
-    NSLog(@"Data: %@", data);
-    NSLog(@"Second Data: %@", secondData);
-    NSLog(@"Array: %@", mainDataArray);
-    
-    [self populateList];
 }
 
 -(void)populateList
@@ -200,5 +166,31 @@ UIAlertView *myAlertView;
     [self recieveJSON];
     [self.textView endEditing:YES];
 }
+
+
+- (void)requestFinished:(ASIHTTPRequest *)request
+{
+    NSString *responseString = [request responseString];
+    SBJsonParser *objJson = [[SBJsonParser alloc] init];
+    NSDictionary *data = (NSDictionary*)[objJson objectWithString:responseString];
+    NSDictionary *secondData = [data valueForKey:@"data"];
+    mainDataArray = [secondData valueForKey:@"children"];
+    
+    NSLog(@"jsonString: %@", responseString);
+    NSLog(@"Data: %@", data);
+    NSLog(@"Second Data: %@", secondData);
+    NSLog(@"Array: %@", mainDataArray);
+    
+    [self populateList];
+
+
+}
+
+- (void)requestFailed:(ASIHTTPRequest *)request
+{
+    NSError *error = [request error];
+    NSLog(@"Error: %@", error);
+}
+
 
 @end
