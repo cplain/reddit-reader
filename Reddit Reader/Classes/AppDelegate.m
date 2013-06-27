@@ -9,20 +9,33 @@
 #import "AppDelegate.h"
 
 #import "MainPageViewController.h"
+#import "CommentsPageViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    // Override point for customization after application launch.
-    self.viewController = [[MainPageViewController alloc] initWithNibName:@"MainPageViewController" bundle:nil];
-    self.navigController = [[UINavigationController alloc] initWithRootViewController:self.viewController];    
-    
-    self.window.rootViewController = self.navigController;
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone)
+    {
+        MainPageViewController *viewController = [[MainPageViewController alloc] initWithNibName:@"MainPageViewController" bundle:nil];
+        UINavigationController *navigController = [[UINavigationController alloc] initWithRootViewController:viewController];
+        self.window.rootViewController = navigController;
+    }
+    else
+    {
+        UISplitViewController *splitViewController = [[UISplitViewController alloc] init];
+        
+        MainPageViewController *leftViewController = [[MainPageViewController alloc] initWithNibName:@"MainPageViewController" bundle:nil];
+        CommentsPageViewController *rightViewController = [[CommentsPageViewController alloc] initWithNibName:@"CommentsPageViewController" bundle:nil];
+        
+        splitViewController.viewControllers = [NSArray arrayWithObjects:leftViewController, rightViewController, nil];
+        leftViewController.delegate = rightViewController;
+        
+        self.window.rootViewController = splitViewController;
+    }
     [self.window makeKeyAndVisible];
-    
     return YES;
 }
 

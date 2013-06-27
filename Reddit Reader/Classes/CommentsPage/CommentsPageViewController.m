@@ -24,7 +24,10 @@ UIAlertView *myAlertView;
 {
     [super viewDidLoad];
     [self setUpLoadingIndicator];
-    [self loadThread];
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone)
+    {
+        [self loadThread];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,5 +68,11 @@ UIAlertView *myAlertView;
 {
     NSError *error = [request error];
     NSLog(@"Error: %@", error);
+}
+
+-(void)selectedSubreddit:(NSURL *)selectedCommentThreadUrl
+{
+    self.commentThreadUrl = selectedCommentThreadUrl;
+    [self loadThread];
 }
 @end

@@ -124,11 +124,21 @@ UIAlertView *myAlertView;
 
 - (void)tableView: (UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath
 {
-    CommentsPageViewController *comments = [[CommentsPageViewController alloc]initWithNibName:@"CommentsPageViewController" bundle:nil];
-    
     NSDictionary *dict = [[mainDataArray objectAtIndex:indexPath.row]valueForKey:@"data"];
-    comments.commentThreadUrl = [NSURL URLWithString:[dict valueForKey:@"url"]];
-    [self.navigationController pushViewController:comments animated:YES];
+    
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)
+    {
+        if (_delegate)
+        {
+            [_delegate selectedSubreddit:[NSURL URLWithString:[dict valueForKey:@"url"]]];
+        }
+    }
+    else
+    {
+        CommentsPageViewController *comments = [[CommentsPageViewController alloc]initWithNibName:@"CommentsPageViewController" bundle:nil];
+        comments.commentThreadUrl = [NSURL URLWithString:[dict valueForKey:@"url"]];
+        [self.navigationController pushViewController:comments animated:YES];
+    }
 }
 
 -(void)showRefreshDialog

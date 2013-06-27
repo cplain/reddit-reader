@@ -65,6 +65,7 @@
 		CF048DB617729DCC00ECA9EA /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterState.m; sourceTree = "<group>"; };
 		CF048DB717729DCC00ECA9EA /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		CF048DB817729DCC00ECA9EA /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		CF1FB60A177BB93A00E1CBA6 /* SubredditSelectionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SubredditSelectionDelegate.h; path = Classes/SubredditSelection/SubredditSelectionDelegate.h; sourceTree = "<group>"; };
 		CF2CD9AD1773F7C3005E62D9 /* CommentsPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommentsPageViewController.h; path = Classes/CommentsPage/CommentsPageViewController.h; sourceTree = "<group>"; };
 		CF2CD9AE1773F7C3005E62D9 /* CommentsPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommentsPageViewController.m; path = Classes/CommentsPage/CommentsPageViewController.m; sourceTree = "<group>"; };
 		CF2CD9AF1773F7C3005E62D9 /* CommentsPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CommentsPageViewController.xib; path = Classes/CommentsPage/CommentsPageViewController.xib; sourceTree = "<group>"; };
@@ -156,6 +157,14 @@
 			path = "Reddit Reader/External/JSON";
 			sourceTree = "<group>";
 		};
+		CF1FB60B177BB94C00E1CBA6 /* SubredditSelection */ = {
+			isa = PBXGroup;
+			children = (
+				CF1FB60A177BB93A00E1CBA6 /* SubredditSelectionDelegate.h */,
+			);
+			name = SubredditSelection;
+			sourceTree = "<group>";
+		};
 		CF2CD9AC1773F793005E62D9 /* CommentsPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,7 +206,6 @@
 		CFD4EBAB177275F000FB9833 = {
 			isa = PBXGroup;
 			children = (
-				CF2CDA1B17741F91005E62D9 /* libz.dylib */,
 				CFD4EBBD177275F000FB9833 /* Reddit Reader */,
 				CFD4EBB6177275F000FB9833 /* Frameworks */,
 				CFD4EBB5177275F000FB9833 /* Products */,
@@ -215,8 +223,9 @@
 		CFD4EBB6177275F000FB9833 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CF048DA317729DCC00ECA9EA /* JSON */,
 				CF2CD9F617741C3B005E62D9 /* ASI */,
+				CF048DA317729DCC00ECA9EA /* JSON */,
+				CF2CDA1B17741F91005E62D9 /* libz.dylib */,
 				CF2CDA1317741CC6005E62D9 /* QuartzCore.framework */,
 				CF2CDA1717741DBB005E62D9 /* MobileCoreServices.framework */,
 				CF2CDA1517741DA5005E62D9 /* CFNetwork.framework */,
@@ -252,6 +261,7 @@
 		CFD4EBE21772782F00FB9833 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				CF1FB60B177BB94C00E1CBA6 /* SubredditSelection */,
 				CFD4EBE31772783600FB9833 /* MainPage */,
 				CF2CD9AC1773F793005E62D9 /* CommentsPage */,
 				CFD4EBDA177277F600FB9833 /* AppDelegate.h */,
@@ -443,11 +453,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Reddit Reader/Supporting Files/Reddit Reader-Prefix.pch";
 				INFOPLIST_FILE = "Reddit Reader/Supporting Files/Reddit Reader-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SDKROOT)/usr/lib/system\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -458,11 +470,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Reddit Reader/Supporting Files/Reddit Reader-Prefix.pch";
 				INFOPLIST_FILE = "Reddit Reader/Supporting Files/Reddit Reader-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SDKROOT)/usr/lib/system\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
