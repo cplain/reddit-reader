@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "SubredditSelectionDelegate.h"
 
-@interface CommentsPageViewController : UIViewController <SubredditSelectionDelegate>
+@interface CommentsPageViewController : UIViewController <SubredditSelectionDelegate, UISplitViewControllerDelegate>
 
 @property (nonatomic, retain) NSURL *commentThreadUrl;
 @property (nonatomic, retain) IBOutlet UITextView *tempDisplay;
+@property (nonatomic, strong) UIPopoverController *popover;
 
 @end

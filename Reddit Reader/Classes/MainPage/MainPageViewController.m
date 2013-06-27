@@ -57,7 +57,7 @@ UIAlertView *myAlertView;
 
 -(void)recieveJSON
 {
-    [myAlertView show];
+    //[myAlertView show];
     NSString *url = [NSString stringWithFormat:@"http://www.reddit.com/r/%@/%@.json" , subreddit, [self getViewCat]];
     NSLog(@"URL: %@", url);    
 

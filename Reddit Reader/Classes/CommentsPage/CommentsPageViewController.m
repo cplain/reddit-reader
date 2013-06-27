@@ -72,7 +72,24 @@ UIAlertView *myAlertView;
 
 -(void)selectedSubreddit:(NSURL *)selectedCommentThreadUrl
 {
+    if (_popover != nil)
+        [_popover dismissPopoverAnimated:YES];
+    
     self.commentThreadUrl = selectedCommentThreadUrl;
     [self loadThread];
 }
+
+-(void)splitViewController:(UISplitViewController *)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)pc
+{
+    self.popover = pc;
+    barButtonItem.title = @"Threads";
+    [self.navigationItem setLeftBarButtonItem:barButtonItem animated:YES];
+}
+
+-(void)splitViewController:(UISplitViewController *)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
+{
+    [self.navigationItem setLeftBarButtonItem:nil animated:YES];
+    _popover = nil;
+}
+
 @end

@@ -16,22 +16,22 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
      self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    MainPageViewController *viewController = [[MainPageViewController alloc] initWithNibName:@"MainPageViewController" bundle:nil];
+    UINavigationController *navigController = [[UINavigationController alloc] initWithRootViewController:viewController];
     
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone)
     {
-        MainPageViewController *viewController = [[MainPageViewController alloc] initWithNibName:@"MainPageViewController" bundle:nil];
-        UINavigationController *navigController = [[UINavigationController alloc] initWithRootViewController:viewController];
         self.window.rootViewController = navigController;
     }
     else
     {
         UISplitViewController *splitViewController = [[UISplitViewController alloc] init];
-        
-        MainPageViewController *leftViewController = [[MainPageViewController alloc] initWithNibName:@"MainPageViewController" bundle:nil];
         CommentsPageViewController *rightViewController = [[CommentsPageViewController alloc] initWithNibName:@"CommentsPageViewController" bundle:nil];
+        UINavigationController *rightNavigController = [[UINavigationController alloc] initWithRootViewController:rightViewController];
         
-        splitViewController.viewControllers = [NSArray arrayWithObjects:leftViewController, rightViewController, nil];
-        leftViewController.delegate = rightViewController;
+        splitViewController.viewControllers = [NSArray arrayWithObjects:navigController, rightNavigController, nil];
+        splitViewController.delegate = rightViewController;
+        viewController.delegate = rightViewController;
         
         self.window.rootViewController = splitViewController;
     }
