@@ -14,5 +14,6 @@
 @property (nonatomic, retain) NSURL *commentThreadUrl;
 @property (nonatomic, retain) IBOutlet UITextView *tempDisplay;
 @property (nonatomic, strong) UIPopoverController *popover;
+@property (nonatomic, strong) UIBarButtonItem *myBarButtonItem;
 
 @end

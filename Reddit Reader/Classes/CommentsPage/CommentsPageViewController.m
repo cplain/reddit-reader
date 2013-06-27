@@ -24,10 +24,11 @@ UIAlertView *myAlertView;
 {
     [super viewDidLoad];
     [self setUpLoadingIndicator];
+    
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone)
-    {
         [self loadThread];
-    }
+    else
+        [self.popover presentPopoverFromBarButtonItem:self.myBarButtonItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -82,8 +83,9 @@ UIAlertView *myAlertView;
 -(void)splitViewController:(UISplitViewController *)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)pc
 {
     self.popover = pc;
-    barButtonItem.title = @"Threads";
-    [self.navigationItem setLeftBarButtonItem:barButtonItem animated:YES];
+    self.myBarButtonItem = barButtonItem;
+    self.myBarButtonItem.title = @"Threads";
+    [self.navigationItem setLeftBarButtonItem:self.myBarButtonItem animated:YES];
 }
 
 -(void)splitViewController:(UISplitViewController *)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
