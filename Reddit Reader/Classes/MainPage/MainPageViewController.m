@@ -5,11 +5,14 @@
 //  Created by Coby Plain on 20/06/13.
 //  Copyright (c) 2013 seaplain. All rights reserved.
 //
+#define REUSE_IDENTIFIER @"CustomTableViewCell"
 
 #import "MainPageViewController.h"
 #import "CommentsPageViewController.h"
 #import "ASIHTTPRequest.h"
 #import "SBJson.h"
+#import "CustomTableViewCell.h"
+#import "Thread.h"
 
 @interface MainPageViewController ()
 @end
@@ -19,7 +22,6 @@
 NSMutableArray *mainDataArray;
 NSMutableArray *linkNamesArray;
 NSString *subreddit = @"askreddit";
-UIAlertView *myAlertView;
 
 @synthesize tableView;
 @synthesize textView;
@@ -28,7 +30,7 @@ UIAlertView *myAlertView;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setUpLoadingIndicator];
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -42,22 +44,8 @@ UIAlertView *myAlertView;
     [super didReceiveMemoryWarning];
 }
 
--(void)setUpLoadingIndicator
-{
-    myAlertView = [[UIAlertView alloc] initWithTitle:@"Loading" message:@"\n"
-                                        delegate:nil
-                                        cancelButtonTitle:nil
-                                        otherButtonTitles:nil, nil];
-    
-    UIActivityIndicatorView *loading = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    loading.center = CGPointMake(139.5, 75.5);
-    [myAlertView addSubview:loading];
-    [loading startAnimating];
-}
-
 -(void)recieveJSON
 {
-    //[myAlertView show];
     NSString *url = [NSString stringWithFormat:@"http://www.reddit.com/r/%@/%@.json" , subreddit, [self getViewCat]];
     NSLog(@"URL: %@", url);    
 
@@ -86,17 +74,24 @@ UIAlertView *myAlertView;
 -(void)populateList
 {
     NSDictionary *tempDict;
+    Thread *tempThread;
     linkNamesArray = [NSMutableArray array];
     
     for(int i = 0; i < [mainDataArray count]; i++)
     {
+        tempThread = [[Thread alloc] init];
         tempDict = [[mainDataArray objectAtIndex:i]valueForKey:@"data"];
-        [linkNamesArray addObject:[tempDict valueForKey:@"title"]];
+        
+        tempThread.threadName = [tempDict valueForKey:@"title"];
+        tempThread.upvotes = [tempDict valueForKey:@"ups"];
+        tempThread.downvotes = [tempDict valueForKey:@"downs"];
+        tempThread.upvotes = [tempDict valueForKey:@"num_comments"];
+        
+        [linkNamesArray addObject:tempThread];
     }
     
     [self.tableView reloadData];
     self.title = [NSString stringWithFormat:@"/r/%@", subreddit];
-    [myAlertView dismissWithClickedButtonIndex:0 animated:YES];
     
     if ([linkNamesArray count] == 0)
         [self showRefreshDialog];
@@ -109,17 +104,19 @@ UIAlertView *myAlertView;
 
 - (UITableViewCell *)tableView:(UITableView *)myTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *simpleTableIdentifier = @"SimpleTableItem";
-    
-    UITableViewCell *cell = [myTableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
-        [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+    CustomTableViewCell *cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:REUSE_IDENTIFIER];
+    if (cell == nil)
+    {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:REUSE_IDENTIFIER owner:self options:nil];
+        cell = [nib objectAtIndex:0];
     }
     
-    cell.textLabel.text = [linkNamesArray objectAtIndex:indexPath.row];
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 98;
 }
 
 - (void)tableView: (UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath
@@ -189,8 +186,6 @@ UIAlertView *myAlertView;
     NSLog(@"Array: %@", mainDataArray);
     
     [self populateList];
-
-
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request

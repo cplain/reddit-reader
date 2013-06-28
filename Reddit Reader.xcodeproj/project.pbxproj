@@ -17,6 +17,9 @@
 		CF048DC017729DCC00ECA9EA /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = CF048DB417729DCC00ECA9EA /* SBJsonStreamWriterAccumulator.m */; };
 		CF048DC117729DCC00ECA9EA /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = CF048DB617729DCC00ECA9EA /* SBJsonStreamWriterState.m */; };
 		CF048DC217729DCC00ECA9EA /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF048DB817729DCC00ECA9EA /* SBJsonWriter.m */; };
+		CF195C3E177C078300C66161 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF195C3D177C078300C66161 /* CustomTableViewCell.m */; };
+		CF195C42177C1B2500C66161 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF195C41177C1B2500C66161 /* CustomTableViewCell.xib */; };
+		CF195C4C177D08B000C66161 /* Thread.m in Sources */ = {isa = PBXBuildFile; fileRef = CF195C4B177D08B000C66161 /* Thread.m */; };
 		CF2CD9B01773F7C3005E62D9 /* CommentsPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2CD9AE1773F7C3005E62D9 /* CommentsPageViewController.m */; };
 		CF2CD9B11773F7C3005E62D9 /* CommentsPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF2CD9AF1773F7C3005E62D9 /* CommentsPageViewController.xib */; };
 		CF2CD9D417741A10005E62D9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2CD9D317741A10005E62D9 /* SystemConfiguration.framework */; };
@@ -65,7 +68,12 @@
 		CF048DB617729DCC00ECA9EA /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterState.m; sourceTree = "<group>"; };
 		CF048DB717729DCC00ECA9EA /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		CF048DB817729DCC00ECA9EA /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
-		CF1FB60A177BB93A00E1CBA6 /* SubredditSelectionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SubredditSelectionDelegate.h; path = Classes/SubredditSelection/SubredditSelectionDelegate.h; sourceTree = "<group>"; };
+		CF195C3C177C078300C66161 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomTableViewCell.h; path = Subclasses/CustomTableViewCell.h; sourceTree = "<group>"; };
+		CF195C3D177C078300C66161 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomTableViewCell.m; path = Subclasses/CustomTableViewCell.m; sourceTree = "<group>"; };
+		CF195C41177C1B2500C66161 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomTableViewCell.xib; path = Subclasses/CustomTableViewCell.xib; sourceTree = "<group>"; };
+		CF195C4A177D08B000C66161 /* Thread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Thread.h; path = Classes/Thread/Thread.h; sourceTree = "<group>"; };
+		CF195C4B177D08B000C66161 /* Thread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Thread.m; path = Classes/Thread/Thread.m; sourceTree = "<group>"; };
+		CF195C4E177D092800C66161 /* SubredditSelectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubredditSelectionDelegate.h; path = Classes/SubredditSelectionDelegate.h; sourceTree = "<group>"; };
 		CF2CD9AD1773F7C3005E62D9 /* CommentsPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommentsPageViewController.h; path = Classes/CommentsPage/CommentsPageViewController.h; sourceTree = "<group>"; };
 		CF2CD9AE1773F7C3005E62D9 /* CommentsPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommentsPageViewController.m; path = Classes/CommentsPage/CommentsPageViewController.m; sourceTree = "<group>"; };
 		CF2CD9AF1773F7C3005E62D9 /* CommentsPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CommentsPageViewController.xib; path = Classes/CommentsPage/CommentsPageViewController.xib; sourceTree = "<group>"; };
@@ -157,12 +165,23 @@
 			path = "Reddit Reader/External/JSON";
 			sourceTree = "<group>";
 		};
-		CF1FB60B177BB94C00E1CBA6 /* SubredditSelection */ = {
+		CF195C3B177C071600C66161 /* Subclasses */ = {
 			isa = PBXGroup;
 			children = (
-				CF1FB60A177BB93A00E1CBA6 /* SubredditSelectionDelegate.h */,
+				CF195C3C177C078300C66161 /* CustomTableViewCell.h */,
+				CF195C3D177C078300C66161 /* CustomTableViewCell.m */,
+				CF195C41177C1B2500C66161 /* CustomTableViewCell.xib */,
 			);
-			name = SubredditSelection;
+			name = Subclasses;
+			sourceTree = "<group>";
+		};
+		CF195C4D177D08B700C66161 /* Thread */ = {
+			isa = PBXGroup;
+			children = (
+				CF195C4A177D08B000C66161 /* Thread.h */,
+				CF195C4B177D08B000C66161 /* Thread.m */,
+			);
+			name = Thread;
 			sourceTree = "<group>";
 		};
 		CF2CD9AC1773F793005E62D9 /* CommentsPage */ = {
@@ -241,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				CFD4EBE21772782F00FB9833 /* Classes */,
+				CF195C3B177C071600C66161 /* Subclasses */,
 				CFD4EBE41772785A00FB9833 /* Images */,
 				CFD4EBBE177275F000FB9833 /* Supporting Files */,
 			);
@@ -261,11 +281,12 @@
 		CFD4EBE21772782F00FB9833 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				CF1FB60B177BB94C00E1CBA6 /* SubredditSelection */,
+				CF195C4D177D08B700C66161 /* Thread */,
 				CFD4EBE31772783600FB9833 /* MainPage */,
 				CF2CD9AC1773F793005E62D9 /* CommentsPage */,
 				CFD4EBDA177277F600FB9833 /* AppDelegate.h */,
 				CFD4EBDB177277F600FB9833 /* AppDelegate.m */,
+				CF195C4E177D092800C66161 /* SubredditSelectionDelegate.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -342,6 +363,7 @@
 				CFD4EBE91772797000FB9833 /* Reddit Reader-Info.plist in Resources */,
 				CFD4EBEE177279E300FB9833 /* MainPageViewController.xib in Resources */,
 				CF2CD9B11773F7C3005E62D9 /* CommentsPageViewController.xib in Resources */,
+				CF195C42177C1B2500C66161 /* CustomTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +396,8 @@
 				CF2CDA1017741C3C005E62D9 /* ASIHTTPRequest.m in Sources */,
 				CF2CDA1117741C3C005E62D9 /* ASIInputStream.m in Sources */,
 				CF2CDA1217741C3C005E62D9 /* ASINetworkQueue.m in Sources */,
+				CF195C3E177C078300C66161 /* CustomTableViewCell.m in Sources */,
+				CF195C4C177D08B000C66161 /* Thread.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
