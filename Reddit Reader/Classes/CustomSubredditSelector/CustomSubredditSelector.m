@@ -28,6 +28,9 @@
 {
     [self.textView endEditing:YES];
     [self.delegate goToSubreddit:self.textView.text withSelection:self.segmentedControl.selectedSegmentIndex];
+    
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone)
+        [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

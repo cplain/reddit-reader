@@ -53,6 +53,9 @@ NSInteger selectedSegment = 0;
 {
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)
         [self handlePopup:sender];
+    
+    else
+        [self newWindowSelector];
 }
 
 -(void)handlePopup:(id)sender
@@ -73,6 +76,12 @@ NSInteger selectedSegment = 0;
         [_subredditSelectorPopover dismissPopoverAnimated:YES];
         _subredditSelectorPopover = nil;
     }
+}
+
+-(void)newWindowSelector
+{
+    CustomSubredditSelector *selector = [[CustomSubredditSelector alloc] initWithNibName:@"CustomSubredditSelector" bundle:nil];
+    [self.navigationController pushViewController:selector animated:YES];
 }
 
 -(void)recieveJSON
