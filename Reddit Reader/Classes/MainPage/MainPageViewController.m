@@ -81,6 +81,7 @@ NSInteger selectedSegment = 0;
 -(void)newWindowSelector
 {
     CustomSubredditSelector *selector = [[CustomSubredditSelector alloc] initWithNibName:@"CustomSubredditSelector" bundle:nil];
+    selector.delegate = self;
     [self.navigationController pushViewController:selector animated:YES];
 }
 
