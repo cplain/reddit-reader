@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CustomSubredditSelectorDelegate.h"
 
-@interface CustomSubredditSelector : UIView
+@interface CustomSubredditSelector : UIViewController
 
 @property(nonatomic, retain)IBOutlet UITextField *textView;
 @property(nonatomic, retain)IBOutlet UISegmentedControl *segmentedControl;

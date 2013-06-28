@@ -29,6 +29,7 @@ NSInteger selectedSegment = 0;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setUpSubredditSelector];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 }
 
@@ -40,6 +41,32 @@ NSInteger selectedSegment = 0;
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+-(void)setUpSubredditSelector
+{
+    UIBarButtonItem * buttonItem = [[UIBarButtonItem alloc]initWithTitle:@"subreddit" style:UIBarButtonItemStyleBordered target:self action:@selector(subredditSelectorTapped:)];
+    self.navigationItem.rightBarButtonItem = buttonItem;
+}
+
+-(void)subredditSelectorTapped:(id)sender
+{
+    if (_subredditSelector == nil)
+    {
+        _subredditSelector = [[CustomSubredditSelector alloc] initWithNibName:@"CustomSubredditSelector" bundle:nil];
+        _subredditSelector.delegate = self;
+    }
+    if (_subredditSelectorPopover == nil)
+    {
+        _subredditSelectorPopover = [[UIPopoverController alloc] initWithContentViewController:_subredditSelector];
+        [_subredditSelectorPopover presentPopoverFromBarButtonItem:(UIBarButtonItem *)sender
+                                          permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    }
+    else
+    {
+        [_subredditSelectorPopover dismissPopoverAnimated:YES];
+        _subredditSelectorPopover = nil;
+    }
 }
 
 -(void)recieveJSON
@@ -185,6 +212,11 @@ NSInteger selectedSegment = 0;
     subreddit = subredditName;
     selectedSegment = selection;
     [self recieveJSON];
+    
+    if (_subredditSelectorPopover) {
+        [_subredditSelectorPopover dismissPopoverAnimated:YES];
+        _subredditSelectorPopover = nil;
+    }
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)request

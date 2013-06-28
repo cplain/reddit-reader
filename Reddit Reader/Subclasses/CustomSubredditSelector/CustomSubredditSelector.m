@@ -14,10 +14,20 @@
 @synthesize segmentedControl;
 @synthesize delegate;
 
+-(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    
+    if (self)
+        self.contentSizeForViewInPopover = CGSizeMake(286, 94);
+    
+    return self;
+}
+
 -(IBAction)goToSubreddit:(id)sender
 {
-    [self.delegate goToSubreddit:self.textView.text withSelection:self.segmentedControl.selectedSegmentIndex];
     [self.textView endEditing:YES];
+    [self.delegate goToSubreddit:self.textView.text withSelection:self.segmentedControl.selectedSegmentIndex];
 }
 
 @end
