@@ -82,6 +82,11 @@ UIAlertView *myAlertView;
     [self loadThread];
 }
 
+-(BOOL)needsContent
+{
+    return self.threadName == nil;
+}
+
 -(void)splitViewController:(UISplitViewController *)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)pc
 {
     self.popover = pc;

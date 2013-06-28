@@ -96,9 +96,19 @@ NSString *subreddit = @"askreddit";
     
     if ([threads count] == 0)
         [self showRefreshDialog];
+    
+    else if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad && [_delegate needsContent] )
+        [self selectFirstRow];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+-(void)selectFirstRow
+{
+    NSIndexPath *indexPath=[NSIndexPath indexPathForRow:0 inSection:0];
+    [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
+    [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [threads count];
 }
