@@ -51,6 +51,12 @@ NSInteger selectedSegment = 0;
 
 -(void)subredditSelectorTapped:(id)sender
 {
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)
+        [self handlePopup:sender];
+}
+
+-(void)handlePopup:(id)sender
+{
     if (_subredditSelector == nil)
     {
         _subredditSelector = [[CustomSubredditSelector alloc] initWithNibName:@"CustomSubredditSelector" bundle:nil];
