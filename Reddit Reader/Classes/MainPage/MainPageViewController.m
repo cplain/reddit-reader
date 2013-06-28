@@ -22,10 +22,9 @@
 NSMutableArray *mainDataArray;
 NSMutableArray *threads;
 NSString *subreddit = @"askreddit";
+NSInteger selectedSegment = 0;
 
 @synthesize tableView;
-@synthesize textView;
-@synthesize segmentedControl;
 
 - (void)viewDidLoad
 {
@@ -35,7 +34,6 @@ NSString *subreddit = @"askreddit";
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    self.textView.text = subreddit;
     [self recieveJSON];
 }
 
@@ -56,7 +54,7 @@ NSString *subreddit = @"askreddit";
 
 -(NSString *)getViewCat
 {
-    switch (segmentedControl.selectedSegmentIndex) {
+    switch (selectedSegment) {
         case 0:
             return @"hot";
         
@@ -182,13 +180,12 @@ NSString *subreddit = @"askreddit";
 
 }
 
--(IBAction)goToSubreddit:(id)sender
+-(void)goToSubreddit:(NSString*)subredditName withSelection:(NSInteger)selection
 {
-    subreddit = self.textView.text;
+    subreddit = subredditName;
+    selectedSegment = selection;
     [self recieveJSON];
-    [self.textView endEditing:YES];
 }
-
 
 - (void)requestFinished:(ASIHTTPRequest *)request
 {

@@ -8,14 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "SubredditSelectionDelegate.h"
+#import "CustomSubredditSelectorDelegate.h"
 
-@interface MainPageViewController : UIViewController
+@interface MainPageViewController : UIViewController <CustomSubredditSelectionDelegate>
 
 @property(nonatomic, retain)IBOutlet UITableView *tableView;
-@property(nonatomic, retain)IBOutlet UITextField *textView;
-@property(nonatomic, retain)IBOutlet UISegmentedControl *segmentedControl;
 @property (nonatomic, assign) id<SubredditSelectionDelegate> delegate;
-
-- (IBAction) goToSubreddit:(id)sender;
 
 @end
