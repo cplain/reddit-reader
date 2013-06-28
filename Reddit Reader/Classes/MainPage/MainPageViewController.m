@@ -20,7 +20,7 @@
 @implementation MainPageViewController
 
 NSMutableArray *mainDataArray;
-NSMutableArray *linkNamesArray;
+NSMutableArray *threads;
 NSString *subreddit = @"askreddit";
 
 @synthesize tableView;
@@ -75,7 +75,7 @@ NSString *subreddit = @"askreddit";
 {
     NSDictionary *tempDict;
     Thread *tempThread;
-    linkNamesArray = [NSMutableArray array];
+    threads = [NSMutableArray array];
     
     for(int i = 0; i < [mainDataArray count]; i++)
     {
@@ -85,21 +85,22 @@ NSString *subreddit = @"askreddit";
         tempThread.threadName = [tempDict valueForKey:@"title"];
         tempThread.upvotes = [tempDict valueForKey:@"ups"];
         tempThread.downvotes = [tempDict valueForKey:@"downs"];
-        tempThread.upvotes = [tempDict valueForKey:@"num_comments"];
+        tempThread.comments = [tempDict valueForKey:@"num_comments"];
+        tempThread.url = [tempDict valueForKey:@"url"];
         
-        [linkNamesArray addObject:tempThread];
+        [threads addObject:tempThread];
     }
     
     [self.tableView reloadData];
     self.title = [NSString stringWithFormat:@"/r/%@", subreddit];
     
-    if ([linkNamesArray count] == 0)
+    if ([threads count] == 0)
         [self showRefreshDialog];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [linkNamesArray count];
+    return [threads count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)myTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -111,6 +112,12 @@ NSString *subreddit = @"askreddit";
         cell = [nib objectAtIndex:0];
     }
     
+    Thread *thread = [threads objectAtIndex:indexPath.row];
+    cell.mainLabel.text = thread.threadName;
+    cell.upvotes.text = [NSString stringWithFormat:@"%@", thread.upvotes];
+    cell.downvotes.text = [NSString stringWithFormat:@"%@", thread.downvotes];
+    cell.comments.text = [NSString stringWithFormat:@"comments(%@)", thread.comments];
+    
     return cell;
 }
 
@@ -121,19 +128,19 @@ NSString *subreddit = @"askreddit";
 
 - (void)tableView: (UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath
 {
-    NSDictionary *dict = [[mainDataArray objectAtIndex:indexPath.row]valueForKey:@"data"];
+    Thread *thread = [threads objectAtIndex:indexPath.row];
     
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)
     {
         if (_delegate)
         {
-            [_delegate selectedSubreddit:[NSURL URLWithString:[dict valueForKey:@"url"]]];
+            [_delegate selectedSubreddit:[NSURL URLWithString:thread.url]];
         }
     }
     else
     {
         CommentsPageViewController *comments = [[CommentsPageViewController alloc]initWithNibName:@"CommentsPageViewController" bundle:nil];
-        comments.commentThreadUrl = [NSURL URLWithString:[dict valueForKey:@"url"]];
+        comments.commentThreadUrl = [NSURL URLWithString:thread.url];
         [self.navigationController pushViewController:comments animated:YES];
     }
 }
