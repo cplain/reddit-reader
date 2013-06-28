@@ -18,6 +18,7 @@
 UIAlertView *myAlertView;
 @synthesize commentThreadUrl;
 @synthesize tempDisplay;
+@synthesize tempTitleDisplay;
 
 
 - (void)viewDidLoad
@@ -51,6 +52,7 @@ UIAlertView *myAlertView;
 
 -(void)loadThread
 {
+    tempTitleDisplay.text = self.threadName;
     [myAlertView show];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:self.commentThreadUrl];
     [request setDelegate:self];
@@ -59,7 +61,6 @@ UIAlertView *myAlertView;
 
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
-    //Do something here
     [myAlertView dismissWithClickedButtonIndex:0 animated:YES];
     NSString *responseString = [request responseString];
     [self.tempDisplay setText:responseString];
@@ -71,12 +72,13 @@ UIAlertView *myAlertView;
     NSLog(@"Error: %@", error);
 }
 
--(void)selectedSubreddit:(NSURL *)selectedCommentThreadUrl
-{
+-(void)selectedSubreddit:(NSString *)threadName withURL:(NSURL *)selectedCommentThreadUrl
+{    
     if (_popover != nil)
         [_popover dismissPopoverAnimated:YES];
-    
+
     self.commentThreadUrl = selectedCommentThreadUrl;
+    self.threadName = threadName;
     [self loadThread];
 }
 

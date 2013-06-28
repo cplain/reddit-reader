@@ -134,13 +134,14 @@ NSString *subreddit = @"askreddit";
     {
         if (_delegate)
         {
-            [_delegate selectedSubreddit:[NSURL URLWithString:thread.url]];
+            [_delegate selectedSubreddit:thread.threadName withURL:[NSURL URLWithString:thread.url]];
         }
     }
     else
     {
         CommentsPageViewController *comments = [[CommentsPageViewController alloc]initWithNibName:@"CommentsPageViewController" bundle:nil];
         comments.commentThreadUrl = [NSURL URLWithString:thread.url];
+        comments.threadName = thread.threadName;
         [self.navigationController pushViewController:comments animated:YES];
     }
 }

@@ -10,5 +10,5 @@
 
 @protocol SubredditSelectionDelegate <NSObject>
 @required
--(void)selectedSubreddit:(NSURL *)selectedCommentThreadUrl;
+-(void)selectedSubreddit:(NSString*)threadName withURL:(NSURL *)selectedCommentThreadUrl;
 @end

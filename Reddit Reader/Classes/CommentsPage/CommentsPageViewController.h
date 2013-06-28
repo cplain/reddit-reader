@@ -12,6 +12,8 @@
 @interface CommentsPageViewController : UIViewController <SubredditSelectionDelegate, UISplitViewControllerDelegate>
 
 @property (nonatomic, retain) NSURL *commentThreadUrl;
+@property (nonatomic, retain) NSString *threadName;
+@property (nonatomic, retain) IBOutlet UILabel *tempTitleDisplay;
 @property (nonatomic, retain) IBOutlet UITextView *tempDisplay;
 @property (nonatomic, strong) UIPopoverController *popover;
 @property (nonatomic, strong) UIBarButtonItem *myBarButtonItem;
