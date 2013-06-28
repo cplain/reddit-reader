@@ -19,7 +19,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     
     if (self)
-        self.contentSizeForViewInPopover = CGSizeMake(286, 94);
+        self.contentSizeForViewInPopover = self.view.frame.size;
     
     return self;
 }
