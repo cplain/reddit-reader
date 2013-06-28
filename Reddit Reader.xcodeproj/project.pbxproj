@@ -17,11 +17,12 @@
 		CF048DC017729DCC00ECA9EA /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = CF048DB417729DCC00ECA9EA /* SBJsonStreamWriterAccumulator.m */; };
 		CF048DC117729DCC00ECA9EA /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = CF048DB617729DCC00ECA9EA /* SBJsonStreamWriterState.m */; };
 		CF048DC217729DCC00ECA9EA /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF048DB817729DCC00ECA9EA /* SBJsonWriter.m */; };
-		CF195C3E177C078300C66161 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF195C3D177C078300C66161 /* CustomTableViewCell.m */; };
-		CF195C42177C1B2500C66161 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF195C41177C1B2500C66161 /* CustomTableViewCell.xib */; };
-		CF195C4C177D08B000C66161 /* Thread.m in Sources */ = {isa = PBXBuildFile; fileRef = CF195C4B177D08B000C66161 /* Thread.m */; };
-		CF195C55177D416F00C66161 /* CustomSubredditSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF195C54177D416F00C66161 /* CustomSubredditSelector.xib */; };
-		CF195C58177D42DB00C66161 /* CustomSubredditSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = CF195C57177D42DB00C66161 /* CustomSubredditSelector.m */; };
+		CF195C5F177D5DF600C66161 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF195C5D177D5DF600C66161 /* AppDelegate.m */; };
+		CF195C69177D5E0100C66161 /* CustomSubredditSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = CF195C62177D5E0100C66161 /* CustomSubredditSelector.m */; };
+		CF195C6A177D5E0100C66161 /* CustomSubredditSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF195C63177D5E0100C66161 /* CustomSubredditSelector.xib */; };
+		CF195C6B177D5E0100C66161 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF195C67177D5E0100C66161 /* CustomTableViewCell.m */; };
+		CF195C6C177D5E0100C66161 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF195C68177D5E0100C66161 /* CustomTableViewCell.xib */; };
+		CF195C71177D5E1F00C66161 /* Thread.m in Sources */ = {isa = PBXBuildFile; fileRef = CF195C70177D5E1F00C66161 /* Thread.m */; };
 		CF2CD9B01773F7C3005E62D9 /* CommentsPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2CD9AE1773F7C3005E62D9 /* CommentsPageViewController.m */; };
 		CF2CD9B11773F7C3005E62D9 /* CommentsPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF2CD9AF1773F7C3005E62D9 /* CommentsPageViewController.xib */; };
 		CF2CD9D417741A10005E62D9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2CD9D317741A10005E62D9 /* SystemConfiguration.framework */; };
@@ -41,7 +42,6 @@
 		CFD4EBBA177275F000FB9833 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD4EBB9177275F000FB9833 /* Foundation.framework */; };
 		CFD4EBBC177275F000FB9833 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD4EBBB177275F000FB9833 /* CoreGraphics.framework */; };
 		CFD4EBC2177275F000FB9833 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CFD4EBC0177275F000FB9833 /* InfoPlist.strings */; };
-		CFD4EBDC177277F600FB9833 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD4EBDB177277F600FB9833 /* AppDelegate.m */; };
 		CFD4EBE81772797000FB9833 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD4EBE51772797000FB9833 /* main.m */; };
 		CFD4EBE91772797000FB9833 /* Reddit Reader-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CFD4EBE61772797000FB9833 /* Reddit Reader-Info.plist */; };
 		CFD4EBED177279E300FB9833 /* MainPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD4EBEB177279E300FB9833 /* MainPageViewController.m */; };
@@ -70,16 +70,18 @@
 		CF048DB617729DCC00ECA9EA /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterState.m; sourceTree = "<group>"; };
 		CF048DB717729DCC00ECA9EA /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		CF048DB817729DCC00ECA9EA /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
-		CF195C3C177C078300C66161 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomTableViewCell.h; path = Subclasses/CustomTableViewCell.h; sourceTree = "<group>"; };
-		CF195C3D177C078300C66161 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomTableViewCell.m; path = Subclasses/CustomTableViewCell.m; sourceTree = "<group>"; };
-		CF195C41177C1B2500C66161 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomTableViewCell.xib; path = Subclasses/CustomTableViewCell.xib; sourceTree = "<group>"; };
-		CF195C4A177D08B000C66161 /* Thread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Thread.h; path = Classes/Thread/Thread.h; sourceTree = "<group>"; };
-		CF195C4B177D08B000C66161 /* Thread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Thread.m; path = Classes/Thread/Thread.m; sourceTree = "<group>"; };
-		CF195C4E177D092800C66161 /* SubredditSelectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubredditSelectionDelegate.h; path = Classes/SubredditSelectionDelegate.h; sourceTree = "<group>"; };
-		CF195C54177D416F00C66161 /* CustomSubredditSelector.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomSubredditSelector.xib; path = Subclasses/CustomSubredditSelector/CustomSubredditSelector.xib; sourceTree = "<group>"; };
-		CF195C56177D42DB00C66161 /* CustomSubredditSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomSubredditSelector.h; path = Subclasses/CustomSubredditSelector/CustomSubredditSelector.h; sourceTree = "<group>"; };
-		CF195C57177D42DB00C66161 /* CustomSubredditSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomSubredditSelector.m; path = Subclasses/CustomSubredditSelector/CustomSubredditSelector.m; sourceTree = "<group>"; };
-		CF195C5A177D480000C66161 /* CustomSubredditSelectorDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CustomSubredditSelectorDelegate.h; path = Subclasses/CustomSubredditSelector/CustomSubredditSelectorDelegate.h; sourceTree = "<group>"; };
+		CF195C5C177D5DF600C66161 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CF195C5D177D5DF600C66161 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CF195C5E177D5DF600C66161 /* SubredditSelectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubredditSelectionDelegate.h; sourceTree = "<group>"; };
+		CF195C61177D5E0100C66161 /* CustomSubredditSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSubredditSelector.h; sourceTree = "<group>"; };
+		CF195C62177D5E0100C66161 /* CustomSubredditSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSubredditSelector.m; sourceTree = "<group>"; };
+		CF195C63177D5E0100C66161 /* CustomSubredditSelector.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomSubredditSelector.xib; sourceTree = "<group>"; };
+		CF195C64177D5E0100C66161 /* CustomSubredditSelectorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSubredditSelectorDelegate.h; sourceTree = "<group>"; };
+		CF195C66177D5E0100C66161 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
+		CF195C67177D5E0100C66161 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
+		CF195C68177D5E0100C66161 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		CF195C6F177D5E1F00C66161 /* Thread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thread.h; sourceTree = "<group>"; };
+		CF195C70177D5E1F00C66161 /* Thread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Thread.m; sourceTree = "<group>"; };
 		CF2CD9AD1773F7C3005E62D9 /* CommentsPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommentsPageViewController.h; path = Classes/CommentsPage/CommentsPageViewController.h; sourceTree = "<group>"; };
 		CF2CD9AE1773F7C3005E62D9 /* CommentsPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommentsPageViewController.m; path = Classes/CommentsPage/CommentsPageViewController.m; sourceTree = "<group>"; };
 		CF2CD9AF1773F7C3005E62D9 /* CommentsPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CommentsPageViewController.xib; path = Classes/CommentsPage/CommentsPageViewController.xib; sourceTree = "<group>"; };
@@ -113,8 +115,6 @@
 		CFD4EBB9177275F000FB9833 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CFD4EBBB177275F000FB9833 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		CFD4EBC1177275F000FB9833 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		CFD4EBDA177277F600FB9833 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
-		CFD4EBDB177277F600FB9833 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
 		CFD4EBE51772797000FB9833 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Supporting Files/main.m"; sourceTree = "<group>"; };
 		CFD4EBE61772797000FB9833 /* Reddit Reader-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Reddit Reader-Info.plist"; path = "Supporting Files/Reddit Reader-Info.plist"; sourceTree = "<group>"; };
 		CFD4EBE71772797000FB9833 /* Reddit Reader-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Reddit Reader-Prefix.pch"; path = "Supporting Files/Reddit Reader-Prefix.pch"; sourceTree = "<group>"; };
@@ -171,43 +171,55 @@
 			path = "Reddit Reader/External/JSON";
 			sourceTree = "<group>";
 		};
-		CF195C3B177C071600C66161 /* Subclasses */ = {
+		CF195C5B177D5DF600C66161 /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
-				CF195C53177D413F00C66161 /* CustomSubredditSelector */,
-				CF195C52177D412F00C66161 /* CustomTableViewCell */,
+				CF195C5C177D5DF600C66161 /* AppDelegate.h */,
+				CF195C5D177D5DF600C66161 /* AppDelegate.m */,
+				CF195C5E177D5DF600C66161 /* SubredditSelectionDelegate.h */,
 			);
-			name = Subclasses;
+			name = Delegates;
+			path = Classes/Delegates;
 			sourceTree = "<group>";
 		};
-		CF195C4D177D08B700C66161 /* Thread */ = {
+		CF195C60177D5E0100C66161 /* CustomSubredditSelector */ = {
 			isa = PBXGroup;
 			children = (
-				CF195C4A177D08B000C66161 /* Thread.h */,
-				CF195C4B177D08B000C66161 /* Thread.m */,
-			);
-			name = Thread;
-			sourceTree = "<group>";
-		};
-		CF195C52177D412F00C66161 /* CustomTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				CF195C3C177C078300C66161 /* CustomTableViewCell.h */,
-				CF195C3D177C078300C66161 /* CustomTableViewCell.m */,
-				CF195C41177C1B2500C66161 /* CustomTableViewCell.xib */,
-			);
-			name = CustomTableViewCell;
-			sourceTree = "<group>";
-		};
-		CF195C53177D413F00C66161 /* CustomSubredditSelector */ = {
-			isa = PBXGroup;
-			children = (
-				CF195C54177D416F00C66161 /* CustomSubredditSelector.xib */,
-				CF195C56177D42DB00C66161 /* CustomSubredditSelector.h */,
-				CF195C57177D42DB00C66161 /* CustomSubredditSelector.m */,
-				CF195C5A177D480000C66161 /* CustomSubredditSelectorDelegate.h */,
+				CF195C61177D5E0100C66161 /* CustomSubredditSelector.h */,
+				CF195C62177D5E0100C66161 /* CustomSubredditSelector.m */,
+				CF195C63177D5E0100C66161 /* CustomSubredditSelector.xib */,
+				CF195C64177D5E0100C66161 /* CustomSubredditSelectorDelegate.h */,
 			);
 			name = CustomSubredditSelector;
+			path = Classes/CustomSubredditSelector;
+			sourceTree = "<group>";
+		};
+		CF195C65177D5E0100C66161 /* CustomTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				CF195C66177D5E0100C66161 /* CustomTableViewCell.h */,
+				CF195C67177D5E0100C66161 /* CustomTableViewCell.m */,
+				CF195C68177D5E0100C66161 /* CustomTableViewCell.xib */,
+			);
+			name = CustomTableViewCell;
+			path = Classes/CustomTableViewCell;
+			sourceTree = "<group>";
+		};
+		CF195C6D177D5E1F00C66161 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CF195C6E177D5E1F00C66161 /* Thread */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CF195C6E177D5E1F00C66161 /* Thread */ = {
+			isa = PBXGroup;
+			children = (
+				CF195C6F177D5E1F00C66161 /* Thread.h */,
+				CF195C70177D5E1F00C66161 /* Thread.m */,
+			);
+			path = Thread;
 			sourceTree = "<group>";
 		};
 		CF2CD9AC1773F793005E62D9 /* CommentsPage */ = {
@@ -285,8 +297,8 @@
 		CFD4EBBD177275F000FB9833 /* Reddit Reader */ = {
 			isa = PBXGroup;
 			children = (
+				CF195C6D177D5E1F00C66161 /* Models */,
 				CFD4EBE21772782F00FB9833 /* Classes */,
-				CF195C3B177C071600C66161 /* Subclasses */,
 				CFD4EBE41772785A00FB9833 /* Images */,
 				CFD4EBBE177275F000FB9833 /* Supporting Files */,
 			);
@@ -307,12 +319,11 @@
 		CFD4EBE21772782F00FB9833 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				CF195C4D177D08B700C66161 /* Thread */,
+				CF195C60177D5E0100C66161 /* CustomSubredditSelector */,
+				CF195C65177D5E0100C66161 /* CustomTableViewCell */,
+				CF195C5B177D5DF600C66161 /* Delegates */,
 				CFD4EBE31772783600FB9833 /* MainPage */,
 				CF2CD9AC1773F793005E62D9 /* CommentsPage */,
-				CFD4EBDA177277F600FB9833 /* AppDelegate.h */,
-				CFD4EBDB177277F600FB9833 /* AppDelegate.m */,
-				CF195C4E177D092800C66161 /* SubredditSelectionDelegate.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -389,8 +400,8 @@
 				CFD4EBE91772797000FB9833 /* Reddit Reader-Info.plist in Resources */,
 				CFD4EBEE177279E300FB9833 /* MainPageViewController.xib in Resources */,
 				CF2CD9B11773F7C3005E62D9 /* CommentsPageViewController.xib in Resources */,
-				CF195C42177C1B2500C66161 /* CustomTableViewCell.xib in Resources */,
-				CF195C55177D416F00C66161 /* CustomSubredditSelector.xib in Resources */,
+				CF195C6A177D5E0100C66161 /* CustomSubredditSelector.xib in Resources */,
+				CF195C6C177D5E0100C66161 /* CustomTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,7 +412,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFD4EBDC177277F600FB9833 /* AppDelegate.m in Sources */,
 				CFD4EBE81772797000FB9833 /* main.m in Sources */,
 				CFD4EBED177279E300FB9833 /* MainPageViewController.m in Sources */,
 				CF048DB917729DCC00ECA9EA /* SBJsonParser.m in Sources */,
@@ -423,9 +433,10 @@
 				CF2CDA1017741C3C005E62D9 /* ASIHTTPRequest.m in Sources */,
 				CF2CDA1117741C3C005E62D9 /* ASIInputStream.m in Sources */,
 				CF2CDA1217741C3C005E62D9 /* ASINetworkQueue.m in Sources */,
-				CF195C3E177C078300C66161 /* CustomTableViewCell.m in Sources */,
-				CF195C4C177D08B000C66161 /* Thread.m in Sources */,
-				CF195C58177D42DB00C66161 /* CustomSubredditSelector.m in Sources */,
+				CF195C5F177D5DF600C66161 /* AppDelegate.m in Sources */,
+				CF195C69177D5E0100C66161 /* CustomSubredditSelector.m in Sources */,
+				CF195C6B177D5E0100C66161 /* CustomTableViewCell.m in Sources */,
+				CF195C71177D5E1F00C66161 /* Thread.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
