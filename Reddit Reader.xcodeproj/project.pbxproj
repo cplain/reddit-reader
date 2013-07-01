@@ -23,6 +23,7 @@
 		CF23FF351780FEE3006F1136 /* SubredditSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF23FF2E1780FEE3006F1136 /* SubredditSelector.xib */; };
 		CF23FF361780FEE3006F1136 /* ThreadTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF23FF321780FEE3006F1136 /* ThreadTableViewCell.m */; };
 		CF23FF371780FEE3006F1136 /* ThreadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF23FF331780FEE3006F1136 /* ThreadTableViewCell.xib */; };
+		CF23FF391780FF69006F1136 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF23FF381780FF69006F1136 /* CommentTableViewCell.xib */; };
 		CF2CD9B01773F7C3005E62D9 /* CommentsPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2CD9AE1773F7C3005E62D9 /* CommentsPageViewController.m */; };
 		CF2CD9B11773F7C3005E62D9 /* CommentsPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF2CD9AF1773F7C3005E62D9 /* CommentsPageViewController.xib */; };
 		CF2CD9D417741A10005E62D9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2CD9D317741A10005E62D9 /* SystemConfiguration.framework */; };
@@ -82,6 +83,7 @@
 		CF23FF311780FEE3006F1136 /* ThreadTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadTableViewCell.h; sourceTree = "<group>"; };
 		CF23FF321780FEE3006F1136 /* ThreadTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreadTableViewCell.m; sourceTree = "<group>"; };
 		CF23FF331780FEE3006F1136 /* ThreadTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThreadTableViewCell.xib; sourceTree = "<group>"; };
+		CF23FF381780FF69006F1136 /* CommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CommentTableViewCell.xib; path = Classes/CommentTableViewCell/CommentTableViewCell.xib; sourceTree = "<group>"; };
 		CF2CD9AD1773F7C3005E62D9 /* CommentsPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommentsPageViewController.h; path = Classes/CommentsPage/CommentsPageViewController.h; sourceTree = "<group>"; };
 		CF2CD9AE1773F7C3005E62D9 /* CommentsPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommentsPageViewController.m; path = Classes/CommentsPage/CommentsPageViewController.m; sourceTree = "<group>"; };
 		CF2CD9AF1773F7C3005E62D9 /* CommentsPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CommentsPageViewController.xib; path = Classes/CommentsPage/CommentsPageViewController.xib; sourceTree = "<group>"; };
@@ -222,6 +224,14 @@
 			path = Classes/ThreadTableViewCell;
 			sourceTree = "<group>";
 		};
+		CF23FF3A1780FF6E006F1136 /* CommentTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				CF23FF381780FF69006F1136 /* CommentTableViewCell.xib */,
+			);
+			name = CommentTableViewCell;
+			sourceTree = "<group>";
+		};
 		CF2CD9AC1773F793005E62D9 /* CommentsPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +329,7 @@
 		CFD4EBE21772782F00FB9833 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				CF23FF3A1780FF6E006F1136 /* CommentTableViewCell */,
 				CF23FF2B1780FEE3006F1136 /* SubredditSelector */,
 				CF23FF301780FEE3006F1136 /* ThreadTableViewCell */,
 				CF195C5B177D5DF600C66161 /* Delegates */,
@@ -402,6 +413,7 @@
 				CF2CD9B11773F7C3005E62D9 /* CommentsPageViewController.xib in Resources */,
 				CF23FF351780FEE3006F1136 /* SubredditSelector.xib in Resources */,
 				CF23FF371780FEE3006F1136 /* ThreadTableViewCell.xib in Resources */,
+				CF23FF391780FF69006F1136 /* CommentTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
