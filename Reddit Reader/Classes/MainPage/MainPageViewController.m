@@ -5,13 +5,13 @@
 //  Created by Coby Plain on 20/06/13.
 //  Copyright (c) 2013 seaplain. All rights reserved.
 //
-#define REUSE_IDENTIFIER @"CustomTableViewCell"
+#define REUSE_IDENTIFIER @"ThreadTableViewCell"
 
 #import "MainPageViewController.h"
 #import "CommentsPageViewController.h"
 #import "ASIHTTPRequest.h"
 #import "SBJson.h"
-#import "CustomTableViewCell.h"
+#import "ThreadTableViewCell.h"
 #import "Thread.h"
 
 @interface MainPageViewController ()
@@ -62,7 +62,7 @@ NSInteger selectedSegment = 0;
 {
     if (_subredditSelector == nil)
     {
-        _subredditSelector = [[CustomSubredditSelector alloc] initWithNibName:@"CustomSubredditSelector" bundle:nil];
+        _subredditSelector = [[SubredditSelector alloc] initWithNibName:@"SubredditSelector" bundle:nil];
         _subredditSelector.delegate = self;
     }
     if (_subredditSelectorPopover == nil)
@@ -80,7 +80,7 @@ NSInteger selectedSegment = 0;
 
 -(void)newWindowSelector
 {
-    CustomSubredditSelector *selector = [[CustomSubredditSelector alloc] initWithNibName:@"CustomSubredditSelector" bundle:nil];
+    SubredditSelector *selector = [[SubredditSelector alloc] initWithNibName:@"SubredditSelector" bundle:nil];
     selector.delegate = self;
     [self.navigationController pushViewController:selector animated:YES];
 }
@@ -156,7 +156,7 @@ NSInteger selectedSegment = 0;
 
 - (UITableViewCell *)tableView:(UITableView *)myTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CustomTableViewCell *cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:REUSE_IDENTIFIER];
+    ThreadTableViewCell *cell = (ThreadTableViewCell *)[tableView dequeueReusableCellWithIdentifier:REUSE_IDENTIFIER];
     if (cell == nil)
     {
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:REUSE_IDENTIFIER owner:self options:nil];

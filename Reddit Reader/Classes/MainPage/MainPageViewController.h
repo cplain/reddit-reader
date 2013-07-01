@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "SubredditSelectionDelegate.h"
-#import "CustomSubredditSelector.h"
-#import "CustomSubredditSelectorDelegate.h"
+#import "SubredditSelector.h"
+#import "SubredditSelectorDelegate.h"
 
-@interface MainPageViewController : UIViewController <CustomSubredditSelectionDelegate>
+@interface MainPageViewController : UIViewController <SubredditSelectionDelegate>
 
 @property(nonatomic, retain)IBOutlet UITableView *tableView;
 @property (nonatomic, assign) id<SubredditSelectionDelegate> delegate;
-@property (nonatomic, strong) CustomSubredditSelector *subredditSelector;
+@property (nonatomic, strong) SubredditSelector *subredditSelector;
 @property (nonatomic, strong) UIPopoverController *subredditSelectorPopover;
 
 @end
