@@ -8,14 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "SubredditSelectionDelegate.h"
+#import "Thread.h"
 
 @interface CommentsPageViewController : UIViewController <SubredditSelectionDelegate, UISplitViewControllerDelegate>
 
-@property (nonatomic, retain) NSURL *commentThreadUrl;
-@property (nonatomic, retain) NSString *threadName;
-@property (nonatomic, retain) IBOutlet UILabel *tempTitleDisplay;
-@property (nonatomic, retain) IBOutlet UITextView *tempDisplay;
+@property (nonatomic, retain) Thread *thread;
 @property (nonatomic, strong) UIPopoverController *popover;
 @property (nonatomic, strong) UIBarButtonItem *myBarButtonItem;
+
+@property (nonatomic, retain) IBOutlet UITextView *threadName;
+@property (nonatomic, retain) IBOutlet UILabel *upvotes;
+@property (nonatomic, retain) IBOutlet UILabel *downvotes;
 
 @end

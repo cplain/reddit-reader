@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Thread.h"
 
 @protocol SubredditSelectionDelegate <NSObject>
 @required
--(void)selectedSubreddit:(NSString*)threadName withURL:(NSURL *)selectedCommentThreadUrl;
+-(void)selectedSubreddit:(Thread*)selectedThread;
 -(BOOL)needsContent;
 @end

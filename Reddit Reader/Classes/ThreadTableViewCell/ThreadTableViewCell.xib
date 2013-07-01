@@ -50,7 +50,6 @@
 										<int key="NSvFlags">292</int>
 										<string key="NSFrameSize">{56, 87}</string>
 										<reference key="NSSuperview" ref="67497565"/>
-										<reference key="NSWindow"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<object class="NSColor" key="IBUIBackgroundColor">
 											<int key="NSColorSpace">3</int>
@@ -85,7 +84,6 @@
 										<int key="NSvFlags">292</int>
 										<string key="NSFrame">{{9, 20}, {41, 23}}</string>
 										<reference key="NSSuperview" ref="67497565"/>
-										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="521408303"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="IBUIOpaque">NO</bool>
@@ -120,7 +118,6 @@
 										<int key="NSvFlags">292</int>
 										<string key="NSFrame">{{7, 44}, {44, 23}}</string>
 										<reference key="NSSuperview" ref="67497565"/>
-										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="916373153"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="IBUIOpaque">NO</bool>
@@ -145,7 +142,6 @@
 										<int key="NSvFlags">292</int>
 										<string key="NSFrame">{{64, 8}, {237, 51}}</string>
 										<reference key="NSSuperview" ref="67497565"/>
-										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="612116491"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="IBUIOpaque">NO</bool>
@@ -168,7 +164,6 @@
 										<int key="NSvFlags">292</int>
 										<string key="NSFrame">{{64, 53}, {237, 24}}</string>
 										<reference key="NSSuperview" ref="67497565"/>
-										<reference key="NSWindow"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="IBUIOpaque">NO</bool>
 										<bool key="IBUIClipsSubviews">YES</bool>
@@ -196,7 +191,6 @@
 								</array>
 								<string key="NSFrame">{{6, 5}, {308, 87}}</string>
 								<reference key="NSSuperview" ref="527551136"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="396966506"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<object class="NSColor" key="IBUIBackgroundColor">
@@ -211,7 +205,6 @@
 						</array>
 						<string key="NSFrameSize">{320, 97}</string>
 						<reference key="NSSuperview" ref="473263590"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="67497565"/>
 						<string key="NSReuseIdentifierKey">_NS:11</string>
 						<object class="NSColor" key="IBUIBackgroundColor" id="874241973">
@@ -227,7 +220,6 @@
 				</array>
 				<string key="NSFrameSize">{320, 98}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="527551136"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<reference key="IBUIBackgroundColor" ref="874241973"/>
@@ -917,50 +909,7 @@
 			<nil key="sourceID"/>
 			<int key="maxID">533</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes">
-			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
-				<object class="IBPartialClassDescription">
-					<string key="className">NSLayoutConstraint</string>
-					<string key="superclassName">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/NSLayoutConstraint.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">ThreadTableViewCell</string>
-					<string key="superclassName">UITableViewCell</string>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="comments">UILabel</string>
-						<string key="downvotes">UILabel</string>
-						<string key="mainLabel">UILabel</string>
-						<string key="upvotes">UILabel</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="comments">
-							<string key="name">comments</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="downvotes">
-							<string key="name">downvotes</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="mainLabel">
-							<string key="name">mainLabel</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="upvotes">
-							<string key="name">upvotes</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/ThreadTableViewCell.h</string>
-					</object>
-				</object>
-			</array>
-		</object>
+		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>

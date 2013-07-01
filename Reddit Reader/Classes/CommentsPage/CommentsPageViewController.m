@@ -16,10 +16,6 @@
 @implementation CommentsPageViewController
 
 UIAlertView *myAlertView;
-@synthesize commentThreadUrl;
-@synthesize tempDisplay;
-@synthesize tempTitleDisplay;
-
 
 - (void)viewDidLoad
 {
@@ -52,9 +48,9 @@ UIAlertView *myAlertView;
 
 -(void)loadThread
 {
-    tempTitleDisplay.text = self.threadName;
+    self.threadName.text = self.thread.threadName;
     [myAlertView show];
-    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:self.commentThreadUrl];
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:self.thread.url]];
     [request setDelegate:self];
     [request startAsynchronous];
 }
@@ -62,8 +58,6 @@ UIAlertView *myAlertView;
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
     [myAlertView dismissWithClickedButtonIndex:0 animated:YES];
-    NSString *responseString = [request responseString];
-    [self.tempDisplay setText:responseString];
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request
@@ -72,13 +66,12 @@ UIAlertView *myAlertView;
     NSLog(@"Error: %@", error);
 }
 
--(void)selectedSubreddit:(NSString *)threadName withURL:(NSURL *)selectedCommentThreadUrl
+-(void)selectedSubreddit:(Thread *)selectedThread
 {    
     if (_popover != nil)
         [_popover dismissPopoverAnimated:YES];
 
-    self.commentThreadUrl = selectedCommentThreadUrl;
-    self.threadName = threadName;
+    self.thread = selectedThread;
     [self loadThread];
 }
 

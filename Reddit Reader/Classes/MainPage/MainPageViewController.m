@@ -185,14 +185,13 @@ NSInteger selectedSegment = 0;
     {
         if (_delegate)
         {
-            [_delegate selectedSubreddit:thread.threadName withURL:[NSURL URLWithString:thread.url]];
+            [_delegate selectedSubreddit:thread];
         }
     }
     else
     {
         CommentsPageViewController *comments = [[CommentsPageViewController alloc]initWithNibName:@"CommentsPageViewController" bundle:nil];
-        comments.commentThreadUrl = [NSURL URLWithString:thread.url];
-        comments.threadName = thread.threadName;
+        comments.thread = thread;
         [self.navigationController pushViewController:comments animated:YES];
     }
 }
