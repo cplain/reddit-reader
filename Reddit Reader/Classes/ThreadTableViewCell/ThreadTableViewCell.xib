@@ -155,7 +155,7 @@
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 										<string key="IBUIText">Thread name that goes on and on for quite awhile and you don't know when it will end</string>
 										<reference key="IBUITextColor" ref="202820537"/>
-										<reference key="IBUIHighlightedColor" ref="317678052"/>
+										<nil key="IBUIHighlightedColor"/>
 										<int key="IBUIBaselineAdjustment">0</int>
 										<int key="IBUINumberOfLines">0</int>
 										<reference key="IBUIFontDescription" ref="352362674"/>

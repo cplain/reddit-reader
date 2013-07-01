@@ -10,7 +10,7 @@
 
 @implementation CommentTableViewCell
 
-@synthesize mainLabel;
+@synthesize mainTextView;
 @synthesize userName;
 @synthesize additionalDetail;
 @synthesize upvotes;

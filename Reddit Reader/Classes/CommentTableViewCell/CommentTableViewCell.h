@@ -10,7 +10,7 @@
 
 @interface CommentTableViewCell : UITableViewCell
 
-@property(strong, nonatomic) IBOutlet UILabel *mainLabel;
+@property(strong, nonatomic) IBOutlet UITextView *mainTextView;
 @property(strong, nonatomic) IBOutlet UILabel *upvotes;
 @property(strong, nonatomic) IBOutlet UILabel *downvotes;
 @property(strong, nonatomic) IBOutlet UILabel *userName;
