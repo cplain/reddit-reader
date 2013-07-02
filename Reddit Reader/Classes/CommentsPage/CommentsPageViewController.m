@@ -49,6 +49,9 @@ UIAlertView *myAlertView;
 -(void)loadThread
 {
     self.threadName.text = self.thread.threadName;
+    self.upvotes.text = [NSString stringWithFormat:@"%@", self.thread.upvotes];
+    self.downvotes.text = [NSString stringWithFormat:@"%@", self.thread.downvotes];
+    
     [myAlertView show];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:self.thread.url]];
     [request setDelegate:self];
@@ -75,11 +78,6 @@ UIAlertView *myAlertView;
     [self loadThread];
 }
 
--(BOOL)needsContent
-{
-    return self.threadName == nil;
-}
-
 -(void)splitViewController:(UISplitViewController *)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)pc
 {
     self.popover = pc;
@@ -92,6 +90,11 @@ UIAlertView *myAlertView;
 {
     [self.navigationItem setLeftBarButtonItem:nil animated:YES];
     _popover = nil;
+}
+
+-(BOOL)needsContent
+{
+    return self.thread == nil;
 }
 
 @end

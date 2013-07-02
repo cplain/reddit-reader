@@ -38,11 +38,6 @@ NSInteger selectedSegment = 0;
     [self recieveJSON];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-}
-
 -(void)setUpSubredditSelector
 {
     UIBarButtonItem * buttonItem = [[UIBarButtonItem alloc]initWithTitle:@"subreddit" style:UIBarButtonItemStyleBordered target:self action:@selector(subredditSelectorTapped:)];
@@ -142,6 +137,29 @@ NSInteger selectedSegment = 0;
         [self selectFirstRow];
 }
 
+-(void)showRefreshDialog
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops!" message:@"Looks like we didn't recieve anything from that subreddit"
+                                                   delegate:self
+                                          cancelButtonTitle:@"Cancel"
+                                          otherButtonTitles:@"Retry", nil];
+    
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex) {
+            
+        case 1:
+            [self recieveJSON];
+            break;
+            
+        default:
+            break;
+    }
+}
+
 -(void)selectFirstRow
 {
     NSIndexPath *indexPath=[NSIndexPath indexPathForRow:0 inSection:0];
@@ -196,44 +214,6 @@ NSInteger selectedSegment = 0;
     }
 }
 
--(void)showRefreshDialog
-{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops!" message:@"Looks like we didn't recieve anything from that subreddit"
-                                                   delegate:self
-                                                   cancelButtonTitle:@"Cancel"
-                                                   otherButtonTitles:@"Retry", nil];
-    
-    [alert show];
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    switch (buttonIndex) {
-        case 0:
-            break;
-            
-        case 1:
-            [self recieveJSON];
-            break;
-            
-        default:
-            break;
-    }
-
-}
-
--(void)goToSubreddit:(NSString*)subredditName withSelection:(NSInteger)selection
-{
-    subreddit = subredditName;
-    selectedSegment = selection;
-    [self recieveJSON];
-    
-    if (_subredditSelectorPopover) {
-        [_subredditSelectorPopover dismissPopoverAnimated:YES];
-        _subredditSelectorPopover = nil;
-    }
-}
-
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
     NSString *responseString = [request responseString];
@@ -256,5 +236,21 @@ NSInteger selectedSegment = 0;
     NSLog(@"Error: %@", error);
 }
 
+-(void)goToSubreddit:(NSString*)subredditName withSelection:(NSInteger)selection
+{
+    subreddit = subredditName;
+    selectedSegment = selection;
+    [self recieveJSON];
+    
+    if (_subredditSelectorPopover) {
+        [_subredditSelectorPopover dismissPopoverAnimated:YES];
+        _subredditSelectorPopover = nil;
+    }
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+}
 
 @end
