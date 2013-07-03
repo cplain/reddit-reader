@@ -15,4 +15,6 @@
 @property(strong, nonatomic) IBOutlet UILabel *downvotes;
 @property(strong, nonatomic) IBOutlet UILabel *comments;
 
+@property(strong, nonatomic) IBOutlet UIView *background;
+
 @end
