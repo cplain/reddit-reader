@@ -17,8 +17,6 @@
 @property (nonatomic, strong) UIBarButtonItem *myBarButtonItem;
 
 @property (nonatomic, retain) IBOutlet UITextView *threadName;
-@property (nonatomic, retain) IBOutlet UILabel *upvotes;
-@property (nonatomic, retain) IBOutlet UILabel *downvotes;
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 
 @end

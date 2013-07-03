@@ -57,8 +57,6 @@ NSMutableArray *comments;
 -(void)loadThread
 {
     self.threadName.text = self.thread.threadName;
-    self.upvotes.text = [NSString stringWithFormat:@"%@", self.thread.upvotes];
-    self.downvotes.text = [NSString stringWithFormat:@"%@", self.thread.downvotes];
     
     [myAlertView show];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:self.thread.url]];
