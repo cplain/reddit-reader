@@ -131,18 +131,19 @@ NSMutableArray *comments;
         cell = [nib objectAtIndex:0];
     }
     
-//    Thread *thread = [threads objectAtIndex:indexPath.row];
-//    cell.mainLabel.text = thread.threadName;
-//    cell.upvotes.text = [NSString stringWithFormat:@"%@", thread.upvotes];
-//    cell.downvotes.text = [NSString stringWithFormat:@"%@", thread.downvotes];
-//    cell.comments.text = [NSString stringWithFormat:@"comments(%@)", thread.comments];
+    NSDictionary *comment = [[comments objectAtIndex:indexPath.row] valueForKey:@"data"];
     
+    cell.mainTextView.text = [comment valueForKey:@"body"];
+    cell.upvotes.text = [NSString stringWithFormat:@"%@", [comment valueForKey:@"ups"]];
+    cell.downvotes.text = [NSString stringWithFormat:@"%@", [comment valueForKey:@"downs"]];
+    cell.userName.text = [comment valueForKey:@"author"];
+
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 130;
+    return 110;
 }
 
 - (void)tableView: (UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath
