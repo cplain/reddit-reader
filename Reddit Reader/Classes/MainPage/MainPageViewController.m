@@ -122,7 +122,7 @@ NSInteger selectedSegment = 0;
         tempThread.upvotes = [tempDict valueForKey:@"ups"];
         tempThread.downvotes = [tempDict valueForKey:@"downs"];
         tempThread.comments = [tempDict valueForKey:@"num_comments"];
-        tempThread.url = [tempDict valueForKey:@"url"];
+        tempThread.url = [NSString stringWithFormat:@"%@.json",[tempDict valueForKey:@"url"]];
         
         [threads addObject:tempThread];
     }
@@ -169,12 +169,13 @@ NSInteger selectedSegment = 0;
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    NSLog(@"threads size: %d", [threads count]);
     return [threads count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)myTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ThreadTableViewCell *cell = (ThreadTableViewCell *)[tableView dequeueReusableCellWithIdentifier:REUSE_IDENTIFIER];
+    ThreadTableViewCell *cell = (ThreadTableViewCell *)[myTableView dequeueReusableCellWithIdentifier:REUSE_IDENTIFIER];
     if (cell == nil)
     {
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:REUSE_IDENTIFIER owner:self options:nil];
@@ -216,17 +217,10 @@ NSInteger selectedSegment = 0;
 
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
-    NSString *responseString = [request responseString];
     SBJsonParser *objJson = [[SBJsonParser alloc] init];
-    NSDictionary *data = (NSDictionary*)[objJson objectWithString:responseString];
-    NSDictionary *secondData = [data valueForKey:@"data"];
-    mainDataArray = [secondData valueForKey:@"children"];
-    
-    NSLog(@"jsonString: %@", responseString);
-    NSLog(@"Data: %@", data);
-    NSLog(@"Second Data: %@", secondData);
-    NSLog(@"Array: %@", mainDataArray);
-    
+    NSDictionary *data = (NSDictionary*)[objJson objectWithString:[request responseString]];
+    mainDataArray = [[data valueForKey:@"data"] valueForKey:@"children"];
+
     [self populateList];
 }
 
