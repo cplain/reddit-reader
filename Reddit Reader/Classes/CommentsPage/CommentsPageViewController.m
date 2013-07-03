@@ -31,14 +31,34 @@ NSMutableArray *comments;
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone)
+    {
+        [self setUpBackButton];
         [self loadThread];
+    }
     else
+    {
+        [self.myBarButtonItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                            [UIColor blackColor],UITextAttributeTextColor,
+                                            [UIColor clearColor], UITextAttributeTextShadowColor, nil] forState:UIControlStateNormal];
+        
         [self.popover presentPopoverFromBarButtonItem:self.myBarButtonItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    }
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+-(void)setUpBackButton
+{
+    UIBarButtonItem *backbutton =  [[UIBarButtonItem alloc] initWithTitle:@"back" style:UIBarButtonItemStyleBordered target:self action:@selector(close:)];
+    
+    [backbutton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                        [UIColor blackColor],UITextAttributeTextColor,
+                                        [UIColor clearColor], UITextAttributeTextShadowColor, nil] forState:UIControlStateNormal];
+    
+    self.navigationItem.leftBarButtonItem = backbutton;
 }
 
 -(void)setUpLoadingIndicator
@@ -74,10 +94,6 @@ NSMutableArray *comments;
     
     NSMutableArray *data = (NSMutableArray*)[objJson objectWithString:[request responseString]];
     comments = [[NSMutableArray alloc]initWithArray:[[[data objectAtIndex:1] objectForKey:@"data"] objectForKey:@"children"]];
-    
-//    NSLog(@"Response string %@", [request responseString]);
-//    NSLog(@"Data %@", data);
-//    NSLog(@"Comments %@", comments);
     
     [self.tableView reloadData];
 }
@@ -149,6 +165,11 @@ NSMutableArray *comments;
 - (void)tableView: (UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath
 {
     //this will need some planning
+}
+
+-(void)close:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

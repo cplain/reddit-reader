@@ -21,6 +21,8 @@
     if (self)
         self.contentSizeForViewInPopover = self.view.frame.size;
     
+    [self setUpBackButton];
+    
     return self;
 }
 
@@ -31,6 +33,22 @@
     
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone)
         [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)setUpBackButton
+{
+    UIBarButtonItem *backbutton =  [[UIBarButtonItem alloc] initWithTitle:@"back" style:UIBarButtonItemStyleBordered target:self action:@selector(close:)];
+    
+    [backbutton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                        [UIColor blackColor],UITextAttributeTextColor,
+                                        [UIColor clearColor], UITextAttributeTextShadowColor, nil] forState:UIControlStateNormal];
+    
+    self.navigationItem.leftBarButtonItem = backbutton;
+}
+
+-(void)close:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

@@ -19,6 +19,13 @@
     MainPageViewController *viewController = [[MainPageViewController alloc] initWithNibName:@"MainPageViewController" bundle:nil];
     UINavigationController *navigController = [[UINavigationController alloc] initWithRootViewController:viewController];
     
+    navigController.navigationBar.tintColor = [UIColor colorWithRed:(220.0f/255.0f) green:(220.0f/255.0f) blue:(220.0f/255.0f) alpha:1.0f];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                           [UIColor blackColor], UITextAttributeTextColor,
+                                                           [UIColor clearColor],UITextAttributeTextShadowColor,
+                                                           nil]];
+
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone)
     {
         self.window.rootViewController = navigController;
@@ -29,6 +36,8 @@
         CommentsPageViewController *rightViewController = [[CommentsPageViewController alloc] initWithNibName:@"CommentsPageViewController" bundle:nil];
         UINavigationController *rightNavigController = [[UINavigationController alloc] initWithRootViewController:rightViewController];
         
+        rightNavigController.navigationBar.tintColor = [UIColor colorWithRed:(220.0f/255.0f) green:(220.0f/255.0f) blue:(220.0f/255.0f) alpha:1.0f];
+
         splitViewController.viewControllers = [NSArray arrayWithObjects:navigController, rightNavigController, nil];
         splitViewController.delegate = rightViewController;
         viewController.delegate = rightViewController;

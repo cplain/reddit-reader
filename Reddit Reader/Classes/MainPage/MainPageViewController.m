@@ -31,6 +31,10 @@ NSInteger selectedSegment = 0;
     [super viewDidLoad];
     [self setUpSubredditSelector];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    
+    [self.navigationItem.backBarButtonItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIColor blackColor], UITextAttributeTextColor, [UIColor clearColor], UITextAttributeTextShadowColor, nil] forState:UIControlStateNormal];
+    
+    [self.navigationItem.backBarButtonItem setTintColor:[UIColor blackColor]];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -41,6 +45,7 @@ NSInteger selectedSegment = 0;
 -(void)setUpSubredditSelector
 {
     UIBarButtonItem * buttonItem = [[UIBarButtonItem alloc]initWithTitle:@"subreddit" style:UIBarButtonItemStyleBordered target:self action:@selector(subredditSelectorTapped:)];
+    [buttonItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIColor blackColor], UITextAttributeTextColor, [UIColor clearColor], UITextAttributeTextShadowColor, nil] forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = buttonItem;
 }
 
