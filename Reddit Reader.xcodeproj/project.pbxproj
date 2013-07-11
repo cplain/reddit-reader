@@ -25,6 +25,7 @@
 		CF23FF371780FEE3006F1136 /* ThreadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF23FF331780FEE3006F1136 /* ThreadTableViewCell.xib */; };
 		CF23FF391780FF69006F1136 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF23FF381780FF69006F1136 /* CommentTableViewCell.xib */; };
 		CF23FF3D178105BF006F1136 /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF23FF3C178105BF006F1136 /* CommentTableViewCell.m */; };
+		CF23FFEA17869D9D006F1136 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = CF23FFE917869D9D006F1136 /* Comment.m */; };
 		CF2CD9B01773F7C3005E62D9 /* CommentsPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2CD9AE1773F7C3005E62D9 /* CommentsPageViewController.m */; };
 		CF2CD9B11773F7C3005E62D9 /* CommentsPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF2CD9AF1773F7C3005E62D9 /* CommentsPageViewController.xib */; };
 		CF2CD9D417741A10005E62D9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2CD9D317741A10005E62D9 /* SystemConfiguration.framework */; };
@@ -87,6 +88,8 @@
 		CF23FF381780FF69006F1136 /* CommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CommentTableViewCell.xib; path = Classes/CommentTableViewCell/CommentTableViewCell.xib; sourceTree = "<group>"; };
 		CF23FF3B178105BF006F1136 /* CommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommentTableViewCell.h; path = Classes/CommentTableViewCell/CommentTableViewCell.h; sourceTree = "<group>"; };
 		CF23FF3C178105BF006F1136 /* CommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommentTableViewCell.m; path = Classes/CommentTableViewCell/CommentTableViewCell.m; sourceTree = "<group>"; };
+		CF23FFE817869D9D006F1136 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Comment.h; path = Comment/Comment.h; sourceTree = "<group>"; };
+		CF23FFE917869D9D006F1136 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Comment.m; path = Comment/Comment.m; sourceTree = "<group>"; };
 		CF2CD9AD1773F7C3005E62D9 /* CommentsPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommentsPageViewController.h; path = Classes/CommentsPage/CommentsPageViewController.h; sourceTree = "<group>"; };
 		CF2CD9AE1773F7C3005E62D9 /* CommentsPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommentsPageViewController.m; path = Classes/CommentsPage/CommentsPageViewController.m; sourceTree = "<group>"; };
 		CF2CD9AF1773F7C3005E62D9 /* CommentsPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CommentsPageViewController.xib; path = Classes/CommentsPage/CommentsPageViewController.xib; sourceTree = "<group>"; };
@@ -190,6 +193,7 @@
 		CF195C6D177D5E1F00C66161 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CF23FFE717869D42006F1136 /* Comment */,
 				CF195C6E177D5E1F00C66161 /* Thread */,
 			);
 			path = Models;
@@ -235,6 +239,15 @@
 				CF23FF3C178105BF006F1136 /* CommentTableViewCell.m */,
 			);
 			name = CommentTableViewCell;
+			sourceTree = "<group>";
+		};
+		CF23FFE717869D42006F1136 /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				CF23FFE817869D9D006F1136 /* Comment.h */,
+				CF23FFE917869D9D006F1136 /* Comment.m */,
+			);
+			name = Comment;
 			sourceTree = "<group>";
 		};
 		CF2CD9AC1773F793005E62D9 /* CommentsPage */ = {
@@ -455,6 +468,7 @@
 				CF23FF341780FEE3006F1136 /* SubredditSelector.m in Sources */,
 				CF23FF361780FEE3006F1136 /* ThreadTableViewCell.m in Sources */,
 				CF23FF3D178105BF006F1136 /* CommentTableViewCell.m in Sources */,
+				CF23FFEA17869D9D006F1136 /* Comment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

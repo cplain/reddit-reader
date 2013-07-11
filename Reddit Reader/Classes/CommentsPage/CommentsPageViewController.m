@@ -12,6 +12,7 @@
 #import "ASIHTTPRequest.h"
 #import "SBJson.h"
 #import "CommentTableViewCell.h"
+#import "Comment.h"
 
 @interface CommentsPageViewController ()
 
@@ -90,10 +91,23 @@ NSMutableArray *comments;
     [myAlertView dismissWithClickedButtonIndex:0 animated:YES];
     
     SBJsonParser *objJson = [[SBJsonParser alloc] init];
-    objJson.maxDepth = 10000;
+    objJson.maxDepth = 10000; //The size of the JSON is so massive that the library's security measure kicks in, this stops it
     
     NSMutableArray *data = (NSMutableArray*)[objJson objectWithString:[request responseString]];
-    comments = [[NSMutableArray alloc]initWithArray:[[[data objectAtIndex:1] objectForKey:@"data"] objectForKey:@"children"]];
+    NSMutableArray *recievedComments = [[NSMutableArray alloc]initWithArray:[[[data objectAtIndex:1] objectForKey:@"data"] objectForKey:@"children"]];
+    
+    comments = [[NSMutableArray alloc]init];
+    Comment *tempComment;
+    
+    for (int i = 0; i < [recievedComments count]; i++)
+    {
+        tempComment = [[Comment alloc]init];
+        tempComment.author = [[[recievedComments objectAtIndex:i] valueForKey:@"data"] valueForKey:@"author"];
+        tempComment.body = [[[recievedComments objectAtIndex:i] valueForKey:@"data"] valueForKey:@"body"];
+        tempComment.upvotes = [[[recievedComments objectAtIndex:i] valueForKey:@"data"] valueForKey:@"ups"];
+        tempComment.downvotes = [[[recievedComments objectAtIndex:i] valueForKey:@"data"] valueForKey:@"downs"];
+        [comments addObject:tempComment];
+    }
     
     [self.tableView reloadData];
 }
@@ -134,7 +148,6 @@ NSMutableArray *comments;
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"Comments size: %d", [comments count]);
     return [comments count];
 }
 
@@ -147,24 +160,46 @@ NSMutableArray *comments;
         cell = [nib objectAtIndex:0];
     }
     
-    NSDictionary *comment = [[comments objectAtIndex:indexPath.row] valueForKey:@"data"];
+    Comment *comment = [comments objectAtIndex:indexPath.row];
     
-    cell.mainTextView.text = [comment valueForKey:@"body"];
-    cell.upvotes.text = [NSString stringWithFormat:@"%@", [comment valueForKey:@"ups"]];
-    cell.downvotes.text = [NSString stringWithFormat:@"%@", [comment valueForKey:@"downs"]];
-    cell.userName.text = [comment valueForKey:@"author"];
+    cell.mainTextView.text = comment.body;
+    cell.upvotes.text =  [NSString stringWithFormat:@"%@", comment.upvotes] ;
+    cell.downvotes.text = [NSString stringWithFormat:@"%@", comment.downvotes];
+    cell.userName.text = comment.author;
 
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)tableView:(UITableView *)myTableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 110;
+    
+    
+    Comment *tempComment = [comments objectAtIndex:indexPath.row];
+    UIView *tempView = [[UIView alloc]init];
+    UITextView *tempTextView = [[UITextView alloc]initWithFrame:CGRectMake(0, 0, (self.tableView.contentSize.width), 5)];
+    tempTextView.text = tempComment.body;
+    UIFont *font = [UIFont fontWithName:@"Helvetica" size:14];
+    tempTextView.font = font;
+    [tempView addSubview:tempTextView];
+    
+    NSLog(@"temp comment: %@", tempComment.body);
+    NSLog(@"temp content size: %f", tempTextView.contentSize.height);
+    NSLog(@"font %@", tempTextView.font);
+    
+    CGFloat contentSize = 115.0f - 58.0f + tempTextView.contentSize.height;
+    return contentSize;
 }
 
 - (void)tableView: (UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath
 {
-    //this will need some planning
+    //Current winning idea is to have a UITableView inside the cell
+    //Tapping this would hide that view and cause a reload of the table
+    //That means that in the cell height calc method i will need to decide whether or not I include the height of the UITableView
+    //as such I am going to need a flag in the Comment class that determines whether or not to do this
+    //It also means my code in the cell will have to handle the management of it's own table (it could get quite complex)
+    //I must also look into what should be default hidden (all, nothing or some sort of medium)
+    
+    //If this works, I'm really liking it -> must check the code I just wrote works first
 }
 
 -(void)close:(id)sender
