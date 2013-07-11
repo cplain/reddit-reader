@@ -15,5 +15,11 @@
 @property(strong, nonatomic) IBOutlet UILabel *downvotes;
 @property(strong, nonatomic) IBOutlet UILabel *userName;
 @property(strong, nonatomic) IBOutlet UILabel *additionalDetail;
+@property(strong, nonatomic) IBOutlet UITableView *commentsTableView;
+@property(strong, nonatomic) IBOutlet UILabel *sideLabel;
+
+@property(strong, nonatomic) NSMutableArray *comments;
+
+-(void)refresh;
 
 @end

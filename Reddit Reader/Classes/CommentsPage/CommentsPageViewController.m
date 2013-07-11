@@ -93,19 +93,25 @@ NSMutableArray *comments;
     SBJsonParser *objJson = [[SBJsonParser alloc] init];
     objJson.maxDepth = 10000; //The size of the JSON is so massive that the library's security measure kicks in, this stops it
     
-    NSMutableArray *data = (NSMutableArray*)[objJson objectWithString:[request responseString]];
-    NSMutableArray *recievedComments = [[NSMutableArray alloc]initWithArray:[[[data objectAtIndex:1] objectForKey:@"data"] objectForKey:@"children"]];
+    NSMutableArray *JSONData = (NSMutableArray*)[objJson objectWithString:[request responseString]];
+    NSMutableArray *recievedComments = [[NSMutableArray alloc]initWithArray:[[[JSONData objectAtIndex:1] objectForKey:@"data"] objectForKey:@"children"]];
     
     comments = [[NSMutableArray alloc]init];
     Comment *tempComment;
     
-    for (int i = 0; i < [recievedComments count]; i++)
+    for (int i = 0; i < [recievedComments count]-1; i++)
     {
         tempComment = [[Comment alloc]init];
         tempComment.author = [[[recievedComments objectAtIndex:i] valueForKey:@"data"] valueForKey:@"author"];
         tempComment.body = [[[recievedComments objectAtIndex:i] valueForKey:@"data"] valueForKey:@"body"];
         tempComment.upvotes = [[[recievedComments objectAtIndex:i] valueForKey:@"data"] valueForKey:@"ups"];
         tempComment.downvotes = [[[recievedComments objectAtIndex:i] valueForKey:@"data"] valueForKey:@"downs"];
+        NSMutableDictionary *dataDict = [[recievedComments objectAtIndex:i] valueForKey:@"data"];
+        if ([[dataDict valueForKey:@"replies"] isKindOfClass:[NSDictionary class]])
+        {
+            tempComment.comments = [[NSMutableArray alloc]initWithArray:[[[dataDict valueForKey:@"replies"] valueForKey:@"data"] valueForKey:@"children"]];
+            [tempComment loadComments];
+        }
         [comments addObject:tempComment];
     }
     
@@ -166,18 +172,26 @@ NSMutableArray *comments;
     cell.upvotes.text =  [NSString stringWithFormat:@"%@", comment.upvotes] ;
     cell.downvotes.text = [NSString stringWithFormat:@"%@", comment.downvotes];
     cell.userName.text = comment.author;
-
+    cell.comments = comment.comments;
+    [cell.commentsTableView setHidden: !comment.isShowingComments];
+    [cell.sideLabel setHidden: !comment.isShowingComments];
+    
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)myTableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"Height hit");
+    
     Comment *tempComment = [comments objectAtIndex:indexPath.row];
     UIView *tempView = [[UIView alloc]init];
     UITextView *tempTextView = [[UITextView alloc]initWithFrame:CGRectMake(0, 0, (self.tableView.contentSize.width), 5)];
     tempTextView.text = tempComment.body;
     tempTextView.font = [UIFont fontWithName:@"Helvetica" size:14];
     [tempView addSubview:tempTextView];
+    
+    if(tempComment.isShowingComments)
+        return 115.0f - 58.0f + tempTextView.contentSize.height + tempComment.internalTableSize;
     
     return 115.0f - 58.0f + tempTextView.contentSize.height;
 }
@@ -192,6 +206,16 @@ NSMutableArray *comments;
     //I must also look into what should be default hidden (all, nothing or some sort of medium)
     
     //If this works, I'm really liking it -> must check the code I just wrote works first
+    
+    NSLog(@"Row hit");
+    
+    CommentTableViewCell *cell = (CommentTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
+    Comment *comment = [comments objectAtIndex:indexPath.row];
+    comment.isShowingComments = !comment.isShowingComments;
+    comment.internalTableSize = cell.commentsTableView.contentSize.height;
+    [comments replaceObjectAtIndex:indexPath.row withObject:comment];
+    [cell refresh];
+    [tableView reloadData];
 }
 
 -(void)close:(id)sender

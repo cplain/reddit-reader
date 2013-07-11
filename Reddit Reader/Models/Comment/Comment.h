@@ -15,5 +15,10 @@
 @property (nonatomic, retain) NSString *upvotes;
 @property (nonatomic, retain) NSString *downvotes;
 @property (nonatomic, retain) NSString *additonalInfo;
+@property (nonatomic, retain) NSMutableArray *comments;
+@property (nonatomic) BOOL isShowingComments;
+@property (nonatomic) CGFloat internalTableSize;
+
+-(void)loadComments;
 
 @end
