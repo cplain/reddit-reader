@@ -172,22 +172,14 @@ NSMutableArray *comments;
 
 - (CGFloat)tableView:(UITableView *)myTableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    
     Comment *tempComment = [comments objectAtIndex:indexPath.row];
     UIView *tempView = [[UIView alloc]init];
     UITextView *tempTextView = [[UITextView alloc]initWithFrame:CGRectMake(0, 0, (self.tableView.contentSize.width), 5)];
     tempTextView.text = tempComment.body;
-    UIFont *font = [UIFont fontWithName:@"Helvetica" size:14];
-    tempTextView.font = font;
+    tempTextView.font = [UIFont fontWithName:@"Helvetica" size:14];
     [tempView addSubview:tempTextView];
     
-    NSLog(@"temp comment: %@", tempComment.body);
-    NSLog(@"temp content size: %f", tempTextView.contentSize.height);
-    NSLog(@"font %@", tempTextView.font);
-    
-    CGFloat contentSize = 115.0f - 58.0f + tempTextView.contentSize.height;
-    return contentSize;
+    return 115.0f - 58.0f + tempTextView.contentSize.height;
 }
 
 - (void)tableView: (UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath

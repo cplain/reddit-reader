@@ -268,6 +268,7 @@
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<reference key="IBUIBackgroundColor" ref="764644621"/>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+				<int key="IBUISelectionStyle">0</int>
 				<reference key="IBUIContentView" ref="33603632"/>
 				<string key="IBUIReuseIdentifier">CommentTableViewCell</string>
 				<real value="119" key="IBUIRowHeight"/>
