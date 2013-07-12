@@ -167,60 +167,45 @@ NSMutableArray *comments;
     }
     
     Comment *comment = [comments objectAtIndex:indexPath.row];
-    
     cell.mainTextView.text = comment.body;
     cell.upvotes.text =  [NSString stringWithFormat:@"%@", comment.upvotes] ;
     cell.downvotes.text = [NSString stringWithFormat:@"%@", comment.downvotes];
     cell.userName.text = comment.author;
     cell.comments = comment.comments;
-    [cell.commentsTableView setHidden: !comment.isShowingComments];
-    [cell.sideLabel setHidden: !comment.isShowingComments];
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)myTableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"Height hit");
-    
     Comment *tempComment = [comments objectAtIndex:indexPath.row];
-    UIView *tempView = [[UIView alloc]init];
-    UITextView *tempTextView = [[UITextView alloc]initWithFrame:CGRectMake(0, 0, (self.tableView.contentSize.width), 5)];
-    tempTextView.text = tempComment.body;
-    tempTextView.font = [UIFont fontWithName:@"Helvetica" size:14];
-    [tempView addSubview:tempTextView];
-    
-    if(tempComment.isShowingComments)
-        return 115.0f - 58.0f + tempTextView.contentSize.height + tempComment.internalTableSize;
-    
-    return 115.0f - 58.0f + tempTextView.contentSize.height;
+    float contentSize = [self getCellContentSize:tempComment];
+    return 115.0f - 58.0f + contentSize;
 }
 
 - (void)tableView: (UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath
 {
-    //Current winning idea is to have a UITableView inside the cell
-    //Tapping this would hide that view and cause a reload of the table
-    //That means that in the cell height calc method i will need to decide whether or not I include the height of the UITableView
-    //as such I am going to need a flag in the Comment class that determines whether or not to do this
-    //It also means my code in the cell will have to handle the management of it's own table (it could get quite complex)
-    //I must also look into what should be default hidden (all, nothing or some sort of medium)
-    
-    //If this works, I'm really liking it -> must check the code I just wrote works first
-    
-    NSLog(@"Row hit");
-    
-    CommentTableViewCell *cell = (CommentTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
-    Comment *comment = [comments objectAtIndex:indexPath.row];
-    comment.isShowingComments = !comment.isShowingComments;
-    comment.internalTableSize = cell.commentsTableView.contentSize.height;
-    [comments replaceObjectAtIndex:indexPath.row withObject:comment];
-    [cell refresh];
-    [tableView reloadData];
+//    CommentTableViewCell *cell = (CommentTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
+//    Comment *comment = [comments objectAtIndex:indexPath.row];
+//    comment.isShowingComments = !comment.isShowingComments;
+//    [comments replaceObjectAtIndex:indexPath.row withObject:comment];
+//    
+//    [tableView reloadData];
 }
 
 -(void)close:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(float)getCellContentSize:(Comment *)tempComment
+{
+    UIView *tempView = [[UIView alloc]init];
+    UITextView *tempTextView = [[UITextView alloc]initWithFrame:CGRectMake(0, 0, (self.tableView.contentSize.width), 5)];
+    tempTextView.text = tempComment.body;
+    tempTextView.font = [UIFont fontWithName:@"Helvetica" size:14];
+    [tempView addSubview:tempTextView];
+    return tempTextView.contentSize.height;
 }
 
 @end
