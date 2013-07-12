@@ -106,10 +106,10 @@ NSMutableArray *comments;
         tempComment.body = [[[recievedComments objectAtIndex:i] valueForKey:@"data"] valueForKey:@"body"];
         tempComment.upvotes = [[[recievedComments objectAtIndex:i] valueForKey:@"data"] valueForKey:@"ups"];
         tempComment.downvotes = [[[recievedComments objectAtIndex:i] valueForKey:@"data"] valueForKey:@"downs"];
-        NSMutableDictionary *dataDict = [[recievedComments objectAtIndex:i] valueForKey:@"data"];
-        if ([[dataDict valueForKey:@"replies"] isKindOfClass:[NSDictionary class]])
+        
+        if ([[[[recievedComments objectAtIndex:i] valueForKey:@"data"] valueForKey:@"replies"] isKindOfClass:[NSDictionary class]])
         {
-            tempComment.comments = [[NSMutableArray alloc]initWithArray:[[[dataDict valueForKey:@"replies"] valueForKey:@"data"] valueForKey:@"children"]];
+            tempComment.comments = [[NSMutableArray alloc]initWithArray:[[[[[recievedComments objectAtIndex:i] valueForKey:@"data"] valueForKey:@"replies"] valueForKey:@"data"] valueForKey:@"children"]];
             [tempComment loadComments];
         }
         [comments addObject:tempComment];
@@ -173,6 +173,14 @@ NSMutableArray *comments;
     cell.userName.text = comment.author;
     cell.comments = comment.comments;
     
+    if(comment.isSubComment)
+    {
+        cell.mainTextView.backgroundColor = [UIColor greenColor];
+    }
+    else
+    {
+        cell.mainTextView.backgroundColor = [UIColor whiteColor];
+    }
     return cell;
 }
 
@@ -185,12 +193,27 @@ NSMutableArray *comments;
 
 - (void)tableView: (UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath
 {
-//    CommentTableViewCell *cell = (CommentTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
-//    Comment *comment = [comments objectAtIndex:indexPath.row];
-//    comment.isShowingComments = !comment.isShowingComments;
-//    [comments replaceObjectAtIndex:indexPath.row withObject:comment];
-//    
-//    [tableView reloadData];
+    Comment *comment = [comments objectAtIndex:indexPath.row];
+    if (comment == nil) return;
+    
+    if(comment.isShowingComments)
+    {
+        for (int i = 0; i < [comment.comments count]-1; i++)
+        {
+            [comments removeObjectAtIndex:indexPath.row + 1];
+        }
+    }
+    else
+    {
+        if ([comment.comments count] == 0) return;
+        
+        for (int i = 0; i < [comment.comments count]-1; i++)
+        {
+            [comments insertObject:[comment.comments objectAtIndex:i] atIndex:(indexPath.row + 1 + i)];
+        }
+    }
+    comment.isShowingComments = !comment.isShowingComments;  
+    [tableView reloadData];
 }
 
 -(void)close:(id)sender

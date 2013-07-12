@@ -17,7 +17,7 @@
 @property (nonatomic, retain) NSString *additonalInfo;
 @property (nonatomic, retain) NSMutableArray *comments;
 @property (nonatomic) BOOL isShowingComments;
-@property (nonatomic) CGFloat internalTableSize;
+@property (nonatomic) BOOL isSubComment;
 
 -(void)loadComments;
 
