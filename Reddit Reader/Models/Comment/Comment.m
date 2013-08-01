@@ -28,15 +28,14 @@
     self.comments = [[NSMutableArray alloc]init];
     
     Comment *tempComment;
-    for (int i = 0; i < [recievedComments count]-1; i++)
+    for (int i = 0; i < [recievedComments count]; i++)
     {
         tempComment = [[Comment alloc]init];
         tempComment.author = [[[recievedComments objectAtIndex:i] valueForKey:@"data"] valueForKey:@"author"];
         tempComment.body = [[[recievedComments objectAtIndex:i] valueForKey:@"data"] valueForKey:@"body"];
         tempComment.upvotes = [[[recievedComments objectAtIndex:i] valueForKey:@"data"] valueForKey:@"ups"];
         tempComment.downvotes = [[[recievedComments objectAtIndex:i] valueForKey:@"data"] valueForKey:@"downs"];
-        //tempComment.isSubComment = true;
-        tempComment.indent = self.indent + 20;
+        tempComment.indent = self.indent + 10;
         
         if ([[[[recievedComments objectAtIndex:i] valueForKey:@"data"] valueForKey:@"replies"] isKindOfClass:[NSDictionary class]])
         {
