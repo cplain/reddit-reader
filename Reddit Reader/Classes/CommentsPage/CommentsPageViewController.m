@@ -106,6 +106,7 @@ NSMutableArray *comments;
         tempComment.body = [[[recievedComments objectAtIndex:i] valueForKey:@"data"] valueForKey:@"body"];
         tempComment.upvotes = [[[recievedComments objectAtIndex:i] valueForKey:@"data"] valueForKey:@"ups"];
         tempComment.downvotes = [[[recievedComments objectAtIndex:i] valueForKey:@"data"] valueForKey:@"downs"];
+        tempComment.indent = 0;
         
         if ([[[[recievedComments objectAtIndex:i] valueForKey:@"data"] valueForKey:@"replies"] isKindOfClass:[NSDictionary class]])
         {
@@ -167,28 +168,21 @@ NSMutableArray *comments;
     }
     
     Comment *comment = [comments objectAtIndex:indexPath.row];
+    
+    cell.containerView.frame = CGRectMake(cell.frame.origin.x + comment.indent, cell.containerView.frame.origin.y, cell.frame.size.width - comment.indent, cell.containerView.frame.size.height);
+    
     cell.mainTextView.text = comment.body;
     cell.upvotes.text =  [NSString stringWithFormat:@"%@", comment.upvotes] ;
     cell.downvotes.text = [NSString stringWithFormat:@"%@", comment.downvotes];
     cell.userName.text = comment.author;
     cell.comments = comment.comments;
     
-    if(comment.isSubComment)
-    {
-        cell.mainTextView.backgroundColor = [UIColor greenColor];
-    }
-    else
-    {
-        cell.mainTextView.backgroundColor = [UIColor whiteColor];
-    }
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)myTableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Comment *tempComment = [comments objectAtIndex:indexPath.row];
-    float contentSize = [self getCellContentSize:tempComment];
-    return 115.0f - 58.0f + contentSize;
+    return [self getCellContentHeight:indexPath];
 }
 
 - (void)tableView: (UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath
@@ -221,14 +215,15 @@ NSMutableArray *comments;
     [self.navigationController popViewControllerAnimated:YES];
 }
 
--(float)getCellContentSize:(Comment *)tempComment
+-(float)getCellContentHeight:(NSIndexPath *)indexPath
 {
+    Comment *tempComment = [comments objectAtIndex:indexPath.row];    
     UIView *tempView = [[UIView alloc]init];
     UITextView *tempTextView = [[UITextView alloc]initWithFrame:CGRectMake(0, 0, (self.tableView.contentSize.width), 5)];
     tempTextView.text = tempComment.body;
     tempTextView.font = [UIFont fontWithName:@"Helvetica" size:14];
     [tempView addSubview:tempTextView];
-    return tempTextView.contentSize.height;
+    return 115.0f - 58.0f + tempTextView.contentSize.height;
 }
 
 @end

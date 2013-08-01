@@ -16,6 +16,7 @@
 @synthesize upvotes;
 @synthesize downvotes;
 @synthesize comments;
+@synthesize containerView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

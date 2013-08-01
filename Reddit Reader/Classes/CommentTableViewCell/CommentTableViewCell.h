@@ -17,4 +17,6 @@
 @property(strong, nonatomic) IBOutlet UILabel *additionalDetail;
 @property(strong, nonatomic) NSMutableArray *comments;
 
+@property(strong, nonatomic) IBOutlet UIView *containerView;
+
 @end

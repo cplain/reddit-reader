@@ -17,7 +17,9 @@
 @property (nonatomic, retain) NSString *additonalInfo;
 @property (nonatomic, retain) NSMutableArray *comments;
 @property (nonatomic) BOOL isShowingComments;
+
 @property (nonatomic) BOOL isSubComment;
+@property (nonatomic) int indent;
 
 -(void)loadComments;
 
