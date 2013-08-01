@@ -8,7 +8,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Reddit Reader/Classes/CommentsPage/CommentsPageViewController.m"
-         timestampString = "397008419.000945"
+         timestampString = "397027542.572144"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "114"
@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Reddit Reader/Models/Comment/Comment.m"
-         timestampString = "397008221.393635"
+         timestampString = "397027542.572144"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "43"
-         endingLineNumber = "43"
+         startingLineNumber = "40"
+         endingLineNumber = "40"
          landmarkName = "-loadComments"
          landmarkType = "5">
       </FileBreakpoint>
@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Reddit Reader/Models/Comment/Comment.m"
-         timestampString = "397008221.393635"
+         timestampString = "397027542.572144"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "41"
-         endingLineNumber = "41"
+         startingLineNumber = "38"
+         endingLineNumber = "38"
          landmarkName = "-loadComments"
          landmarkType = "5">
       </FileBreakpoint>

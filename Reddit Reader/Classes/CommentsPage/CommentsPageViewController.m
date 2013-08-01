@@ -194,6 +194,7 @@ NSMutableArray *comments;
     {
         for (int i = 0; i < [comment.comments count]-1; i++)
         {
+            [self removeSubComments:[comments objectAtIndex:indexPath.row+1] atPosition:indexPath.row+1];
             [comments removeObjectAtIndex:indexPath.row + 1];
         }
     }
@@ -208,6 +209,19 @@ NSMutableArray *comments;
     }
     comment.isShowingComments = !comment.isShowingComments;  
     [tableView reloadData];
+}
+
+-(void)removeSubComments:(Comment *)comment atPosition:(NSUInteger)currentPosition
+{
+    if(comment.isShowingComments)
+    {
+        for (int i = 0; i < [comment.comments count]-1; i++)
+        {
+            [self removeSubComments:[comments objectAtIndex:currentPosition+1]atPosition:currentPosition+1];
+            [comments removeObjectAtIndex:currentPosition + 1];
+        }
+        comment.isShowingComments = NO;
+    }
 }
 
 -(void)close:(id)sender
