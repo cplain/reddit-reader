@@ -35,7 +35,7 @@
         tempComment.body = [[[recievedComments objectAtIndex:i] valueForKey:@"data"] valueForKey:@"body"];
         tempComment.upvotes = [[[recievedComments objectAtIndex:i] valueForKey:@"data"] valueForKey:@"ups"];
         tempComment.downvotes = [[[recievedComments objectAtIndex:i] valueForKey:@"data"] valueForKey:@"downs"];
-        tempComment.indent = self.indent + 10;
+        tempComment.indent = self.indent + 5;
         
         if ([[[[recievedComments objectAtIndex:i] valueForKey:@"data"] valueForKey:@"replies"] isKindOfClass:[NSDictionary class]])
         {

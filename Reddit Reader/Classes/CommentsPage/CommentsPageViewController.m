@@ -7,6 +7,7 @@
 //
 
 #define REUSE_IDENTIFIER @"CommentTableViewCell"
+#define SUBTLE_OFFSET ((int)7)
 
 #import "CommentsPageViewController.h"
 #import "ASIHTTPRequest.h"
@@ -33,6 +34,7 @@ NSMutableArray *comments;
     
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone)
     {
+        self.threadName.font = [UIFont fontWithName:@"Helvetica" size:16];
         [self setUpBackButton];
         [self loadThread];
     }
@@ -78,6 +80,8 @@ NSMutableArray *comments;
 -(void)loadThread
 {
     self.threadName.text = self.thread.threadName;
+    self.containerView.frame = CGRectMake(self.containerView.frame.origin.x, self.containerView.frame.origin.y, self.containerView.frame.size.width, self.threadName.contentSize.height + SUBTLE_OFFSET);
+    self.tableView.frame = CGRectMake(self.tableView.frame.origin.x, self.containerView.frame.origin.y + self.containerView.frame.size.height - SUBTLE_OFFSET, self.tableView.frame.size.width, self.view.frame.size.height - self.containerView.frame.size.height + SUBTLE_OFFSET);
     
     [myAlertView show];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:self.thread.url]];

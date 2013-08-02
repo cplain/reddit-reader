@@ -19,4 +19,6 @@
 @property (nonatomic, retain) IBOutlet UITextView *threadName;
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 
+@property (nonatomic, retain) IBOutlet UIView *containerView;
+
 @end
