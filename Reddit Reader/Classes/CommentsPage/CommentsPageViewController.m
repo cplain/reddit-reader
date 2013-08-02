@@ -82,6 +82,7 @@ NSMutableArray *comments;
     self.threadName.text = self.thread.threadName;
     self.containerView.frame = CGRectMake(self.containerView.frame.origin.x, self.containerView.frame.origin.y, self.containerView.frame.size.width, self.threadName.contentSize.height + SUBTLE_OFFSET);
     self.tableView.frame = CGRectMake(self.tableView.frame.origin.x, self.containerView.frame.origin.y + self.containerView.frame.size.height - SUBTLE_OFFSET, self.tableView.frame.size.width, self.view.frame.size.height - self.containerView.frame.size.height + SUBTLE_OFFSET);
+    self.imageView.frame = CGRectMake(self.imageView.frame.origin.x, -(self.view.frame.size.height - self.containerView.frame.size.height + SUBTLE_OFFSET), self.imageView.frame.size.width, self.view.frame.size.height - self.containerView.frame.size.height + SUBTLE_OFFSET);
     
     [myAlertView show];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:self.thread.url]];
@@ -121,6 +122,14 @@ NSMutableArray *comments;
     }
     
     [self.tableView reloadData];
+    self.imageView.image = [self fetchImage:self.thread.imageURL];
+}
+
+-(UIImage *)fetchImage:(NSString *)urlString
+{
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    return [[UIImage alloc] initWithData:data];
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request
@@ -242,6 +251,14 @@ NSMutableArray *comments;
     tempTextView.font = [UIFont fontWithName:@"Helvetica" size:14];
     [tempView addSubview:tempTextView];
     return 115.0f - 58.0f + tempTextView.contentSize.height;
+}
+
+-(IBAction)topCommentTapped:(id)sender
+{
+    if (self.imageView.frame.origin.y == -self.imageView.frame.size.height)
+        self.imageView.frame = CGRectMake(self.imageView.frame.origin.x, self.containerView.frame.origin.y + self.containerView.frame.size.height - SUBTLE_OFFSET, self.imageView.frame.size.width, self.imageView.frame.size.height);
+    else
+        self.imageView.frame = CGRectMake(self.imageView.frame.origin.x, -self.imageView.frame.size.height, self.imageView.frame.size.width, self.imageView.frame.size.height);
 }
 
 @end

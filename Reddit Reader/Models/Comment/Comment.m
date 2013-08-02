@@ -10,15 +10,7 @@
 
 @implementation Comment
 
-@synthesize author;
-@synthesize body;
-@synthesize upvotes;
-@synthesize downvotes;
-@synthesize additonalInfo;
 @synthesize comments;
-@synthesize isShowingComments;
-@synthesize isSubComment;
-@synthesize indent;
 
 - (void)loadComments
 {

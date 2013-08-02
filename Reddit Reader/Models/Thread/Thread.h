@@ -15,5 +15,6 @@
 @property(nonatomic, retain) NSString *downvotes;
 @property(nonatomic, retain) NSString *comments;
 @property(nonatomic, retain) NSString *url;
+@property(nonatomic, retain) NSString *imageURL;
 
 @end

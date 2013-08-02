@@ -10,10 +10,4 @@
 
 @implementation Thread
 
-@synthesize threadName;
-@synthesize upvotes;
-@synthesize downvotes;
-@synthesize comments;
-@synthesize url;
-
 @end

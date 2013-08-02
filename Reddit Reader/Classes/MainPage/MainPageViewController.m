@@ -134,6 +134,7 @@ NSInteger selectedSegment = 0;
         tempThread.downvotes = [tempDict valueForKey:@"downs"];
         tempThread.comments = [tempDict valueForKey:@"num_comments"];
         tempThread.url = [NSString stringWithFormat:@"http://www.reddit.com%@.json",[tempDict valueForKey:@"permalink"]];
+        tempThread.imageURL = [tempDict valueForKey:@"url"];
         
         [threads addObject:tempThread];
     }

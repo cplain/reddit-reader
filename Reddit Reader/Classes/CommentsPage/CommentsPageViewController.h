@@ -18,7 +18,9 @@
 
 @property (nonatomic, retain) IBOutlet UITextView *threadName;
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
-
 @property (nonatomic, retain) IBOutlet UIView *containerView;
+@property (nonatomic, retain) IBOutlet UIImageView *imageView;
+
+-(IBAction)topCommentTapped:(id)sender;
 
 @end
