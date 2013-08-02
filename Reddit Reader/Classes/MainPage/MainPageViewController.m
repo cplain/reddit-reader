@@ -21,7 +21,7 @@
 
 NSMutableArray *mainDataArray;
 NSMutableArray *threads;
-NSString *subreddit = @"askreddit";
+NSString *subreddit = @"";
 NSInteger selectedSegment = 0;
 
 @synthesize tableView;
@@ -87,7 +87,13 @@ NSInteger selectedSegment = 0;
 
 -(void)recieveJSON
 {
-    NSString *url = [NSString stringWithFormat:@"http://www.reddit.com/r/%@/%@.json" , subreddit, [self getViewCat]];
+    NSString *url;
+    
+    if ([subreddit isEqualToString:@""])
+        url = [NSString stringWithFormat:@"http://www.reddit.com/%@.json", [self getViewCat]];
+    else
+        url = [NSString stringWithFormat:@"http://www.reddit.com/r/%@/%@.json" , subreddit, [self getViewCat]];
+    
     NSLog(@"URL: %@", url);    
 
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:url]];
@@ -133,7 +139,11 @@ NSInteger selectedSegment = 0;
     }
     
     [self.tableView reloadData];
-    self.title = [NSString stringWithFormat:@"/r/%@", subreddit];
+    
+    if ([subreddit isEqualToString:@""])
+        self.title = @"reddit.com";
+    else
+        self.title = [NSString stringWithFormat:@"/r/%@", subreddit];
     
     if ([threads count] == 0)
         [self showRefreshDialog];
