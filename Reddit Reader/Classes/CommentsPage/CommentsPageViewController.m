@@ -255,7 +255,7 @@ NSMutableArray *comments;
 
 -(IBAction)topCommentTapped:(id)sender
 {
-    if (self.imageView.frame.origin.y == -self.imageView.frame.size.height)
+    if (self.imageView.frame.origin.y == -self.imageView.frame.size.height && self.imageView.image != nil)
         self.imageView.frame = CGRectMake(self.imageView.frame.origin.x, self.containerView.frame.origin.y + self.containerView.frame.size.height - SUBTLE_OFFSET, self.imageView.frame.size.width, self.imageView.frame.size.height);
     else
         self.imageView.frame = CGRectMake(self.imageView.frame.origin.x, -self.imageView.frame.size.height, self.imageView.frame.size.width, self.imageView.frame.size.height);
