@@ -133,7 +133,7 @@ NSInteger selectedSegment = 0;
         tempThread.upvotes = [tempDict valueForKey:@"ups"];
         tempThread.downvotes = [tempDict valueForKey:@"downs"];
         tempThread.comments = [tempDict valueForKey:@"num_comments"];
-        tempThread.url = [NSString stringWithFormat:@"%@.json",[tempDict valueForKey:@"url"]];
+        tempThread.url = [NSString stringWithFormat:@"http://www.reddit.com%@.json",[tempDict valueForKey:@"permalink"]];
         
         [threads addObject:tempThread];
     }
@@ -214,6 +214,8 @@ NSInteger selectedSegment = 0;
 - (void)tableView: (UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath
 {
     Thread *thread = [threads objectAtIndex:indexPath.row];
+    
+    NSLog(@"URL selected: %@", thread.url);
     
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)
     {
