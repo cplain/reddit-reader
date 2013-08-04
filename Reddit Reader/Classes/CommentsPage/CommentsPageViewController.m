@@ -123,6 +123,8 @@ NSMutableArray *comments;
     
     [self.tableView reloadData];
     self.imageView.image = [self fetchImage:self.thread.imageURL];
+    
+    [self.imageLabel setHidden:(self.imageView.image == nil)];
 }
 
 -(UIImage *)fetchImage:(NSString *)urlString
