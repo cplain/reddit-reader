@@ -22,5 +22,6 @@
 @property (nonatomic) int indent;
 
 -(void)loadComments;
+-(NSMutableArray *)getAllComments;
 
 @end

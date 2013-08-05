@@ -124,8 +124,11 @@ UIImageView *gifView;
         {
             tempComment.comments = [[NSMutableArray alloc]initWithArray:[[[[[recievedComments objectAtIndex:i] valueForKey:@"data"] valueForKey:@"replies"] valueForKey:@"data"] valueForKey:@"children"]];
             [tempComment loadComments];
+            if (tempComment.comments != nil)
+                tempComment.isShowingComments = YES;
         }
         [comments addObject:tempComment];
+        [comments addObjectsFromArray:[tempComment getAllComments]];
     }
     
     [self.tableView reloadData];
