@@ -271,20 +271,35 @@ NSMutableArray *comments;
         [self hideAnimation];
 }
 
--(void) showAnimation{
-    
+-(void) showAnimation
+{
+    [self showShadow];
     [UIView animateWithDuration:1.0
                      animations:^{
                          self.imageContainerView.frame = CGRectMake(self.imageContainerView.frame.origin.x, self.containerView.frame.origin.y + self.containerView.frame.size.height - SUBTLE_OFFSET, self.imageView.frame.size.width, self.imageContainerView.frame.size.height);
                      }];
 }
 
--(void) hideAnimation{
-    
+-(void)showShadow
+{
+    [self.shadowLabel setHidden:NO];
+    self.tableView.userInteractionEnabled = NO;
+}
+
+-(void) hideAnimation
+{
     [UIView animateWithDuration:1.0
                      animations:^{
                          self.imageContainerView.frame = CGRectMake(self.imageContainerView.frame.origin.x, -self.imageContainerView.frame.size.height, self.imageContainerView.frame.size.width, self.imageContainerView.frame.size.height);
                      }];
+    
+    [self performSelector:@selector(hideShadow:) withObject:nil afterDelay:(NSTimeInterval)1.0];
+}
+
+-(void)hideShadow:(NSObject *)object
+{
+    [self.shadowLabel setHidden:YES];
+    self.tableView.userInteractionEnabled = YES;
 }
 
 @end
