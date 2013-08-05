@@ -41,6 +41,8 @@
 		CF2CDA1617741DA5005E62D9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2CDA1517741DA5005E62D9 /* CFNetwork.framework */; };
 		CF2CDA1817741DBB005E62D9 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2CDA1717741DBB005E62D9 /* MobileCoreServices.framework */; };
 		CF2CDA1C17741F91005E62D9 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2CDA1B17741F91005E62D9 /* libz.dylib */; };
+		CF63819617B06F00005898FA /* reddit-logo-regular.png in Resources */ = {isa = PBXBuildFile; fileRef = CF63819417B06F00005898FA /* reddit-logo-regular.png */; };
+		CF63819717B06F00005898FA /* reddit-logo-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = CF63819517B06F00005898FA /* reddit-logo-retina.png */; };
 		CFD4EBB8177275F000FB9833 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD4EBB7177275F000FB9833 /* UIKit.framework */; };
 		CFD4EBBA177275F000FB9833 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD4EBB9177275F000FB9833 /* Foundation.framework */; };
 		CFD4EBBC177275F000FB9833 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD4EBBB177275F000FB9833 /* CoreGraphics.framework */; };
@@ -121,6 +123,8 @@
 		CF2CDA1517741DA5005E62D9 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		CF2CDA1717741DBB005E62D9 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		CF2CDA1B17741F91005E62D9 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		CF63819417B06F00005898FA /* reddit-logo-regular.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reddit-logo-regular.png"; path = "Images/reddit-logo-regular.png"; sourceTree = "<group>"; };
+		CF63819517B06F00005898FA /* reddit-logo-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reddit-logo-retina.png"; path = "Images/reddit-logo-retina.png"; sourceTree = "<group>"; };
 		CFD4EBB4177275F000FB9833 /* Reddit Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reddit Reader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFD4EBB7177275F000FB9833 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CFD4EBB9177275F000FB9833 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -380,6 +384,8 @@
 		CFD4EBE41772785A00FB9833 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				CF63819417B06F00005898FA /* reddit-logo-regular.png */,
+				CF63819517B06F00005898FA /* reddit-logo-retina.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -456,6 +462,8 @@
 				CF23FF351780FEE3006F1136 /* SubredditSelector.xib in Resources */,
 				CF23FF371780FEE3006F1136 /* ThreadTableViewCell.xib in Resources */,
 				CF23FF391780FF69006F1136 /* CommentTableViewCell.xib in Resources */,
+				CF63819617B06F00005898FA /* reddit-logo-regular.png in Resources */,
+				CF63819717B06F00005898FA /* reddit-logo-retina.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
