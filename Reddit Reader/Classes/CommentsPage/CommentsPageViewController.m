@@ -49,6 +49,10 @@ UIImageView *gifView;
         
         [self.popover presentPopoverFromBarButtonItem:self.myBarButtonItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     }
+    
+    [self.scrollview setContentSize:CGSizeMake(self.scrollview.frame.size.width, self.scrollview.frame.size.height)];
+    [self.scrollview setMinimumZoomScale:1.0];
+    [self.scrollview setMaximumZoomScale:4.0];
 }
 
 - (void)didReceiveMemoryWarning
@@ -332,6 +336,31 @@ UIImageView *gifView;
     [self.shadowLabel setHidden:YES];
     self.tableView.userInteractionEnabled = YES;
     [self restoreTouch:nil];
+}
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
+    return self.imageView;
+}
+
+- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(float)scale;
+{
+    CGPoint contentOffset = [self.scrollview contentOffset];
+    CGSize  contentSize   = [self.scrollview contentSize];
+    CGSize  containerSize = [self.imageView frame].size;
+    
+    self.scrollview.maximumZoomScale = self.scrollview.maximumZoomScale / scale;
+    self.scrollview.minimumZoomScale = self.scrollview.minimumZoomScale / scale;
+    
+    //previousScale *= scale;
+    
+    [self.scrollview setZoomScale:1.0f];
+    
+    [self.scrollview setContentOffset:contentOffset];
+    [self.scrollview setContentSize:contentSize];
+    [self.imageView setFrame:CGRectMake(0, 0, containerSize.width, containerSize.height)];
+    
+    //[self.imageView reloadData];
 }
 
 @end
