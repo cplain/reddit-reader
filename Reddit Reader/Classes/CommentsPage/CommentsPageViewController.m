@@ -355,15 +355,11 @@ UIImageView *gifView;
     self.scrollview.maximumZoomScale = self.scrollview.maximumZoomScale / scale;
     self.scrollview.minimumZoomScale = self.scrollview.minimumZoomScale / scale;
     
-    //previousScale *= scale;
-    
     [self.scrollview setZoomScale:1.0f];
     
     [self.scrollview setContentOffset:contentOffset];
     [self.scrollview setContentSize:contentSize];
     [self.imageView setFrame:CGRectMake(0, 0, containerSize.width, containerSize.height)];
-    
-    //[self.imageView reloadData];
 }
 
 @end
