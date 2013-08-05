@@ -27,6 +27,7 @@
 
 UIAlertView *myAlertView;
 NSMutableArray *comments;
+UIImageView *gifView;
 
 - (void)viewDidLoad
 {
@@ -124,11 +125,18 @@ NSMutableArray *comments;
     }
     
     [self.tableView reloadData];
+    [self showImage];
+}
+
+-(void)showImage
+{
+    if (gifView != nil)
+        [gifView removeFromSuperview];
     
     if ([[self.thread.imageURL substringWithRange:NSMakeRange(self.thread.imageURL.length - 4, 4)]isEqualToString:@".gif"])
     {
-        UIImageView *view = [AnimatedGif getAnimationForGifAtUrl: [NSURL URLWithString:self.thread.imageURL]];
-        [self.imageContainerView addSubview:view];
+        gifView = [AnimatedGif getAnimationForGifAtUrl: [NSURL URLWithString:self.thread.imageURL]];
+        [self.imageContainerView addSubview:gifView];
         [self.imageView setHidden:YES];
         [self showAnimation];
     }
@@ -139,6 +147,8 @@ NSMutableArray *comments;
             self.imageView.image = [self fetchImage:[NSString stringWithFormat:@"%@.jpg", self.thread.imageURL]];
         else
             self.imageView.image = [self fetchImage:self.thread.imageURL];
+        
+        [self.imageView setHidden:NO];
         
         if (self.imageView.image != nil)
             [self showAnimation];
