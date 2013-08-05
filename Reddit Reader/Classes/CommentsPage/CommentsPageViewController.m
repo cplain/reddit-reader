@@ -8,6 +8,7 @@
 
 #define REUSE_IDENTIFIER @"CommentTableViewCell"
 #define SUBTLE_OFFSET ((int)7)
+#define ANIMATION_DURATION ((float)0.5)
 
 #import "CommentsPageViewController.h"
 #import "ASIHTTPRequest.h"
@@ -123,13 +124,24 @@ NSMutableArray *comments;
     }
     
     [self.tableView reloadData];
-    self.imageView.image = [self fetchImage:self.thread.imageURL];
     
     if ([[self.thread.imageURL substringWithRange:NSMakeRange(self.thread.imageURL.length - 4, 4)]isEqualToString:@".gif"])
     {
         UIImageView *view = [AnimatedGif getAnimationForGifAtUrl: [NSURL URLWithString:self.thread.imageURL]];
         [self.imageContainerView addSubview:view];
         [self.imageView setHidden:YES];
+        [self showAnimation];
+    }
+    else
+    {
+        //Reddit can just give straight links to imgur.com - when this happens, to get the actual image you need to add a filetype
+        if (![[self.thread.imageURL substringWithRange:NSMakeRange(self.thread.imageURL.length - 4, 4)]isEqualToString:@".jpg"])
+            self.imageView.image = [self fetchImage:[NSString stringWithFormat:@"%@.jpg", self.thread.imageURL]];
+        else
+            self.imageView.image = [self fetchImage:self.thread.imageURL];
+        
+        if (self.imageView.image != nil)
+            [self showAnimation];
     }
     
     [self.imageLabel setHidden:(self.imageView.image == nil)];
@@ -137,6 +149,7 @@ NSMutableArray *comments;
 
 -(UIImage *)fetchImage:(NSString *)urlString
 {
+    NSLog(@"%@", urlString);
     NSURL *url = [NSURL URLWithString:urlString];
     NSData *data = [NSData dataWithContentsOfURL:url];
     return [[UIImage alloc] initWithData:data];
@@ -275,11 +288,11 @@ NSMutableArray *comments;
 {
     [self showShadow];
     self.view.userInteractionEnabled = NO;
-    [UIView animateWithDuration:1.0
+    [UIView animateWithDuration:ANIMATION_DURATION
                      animations:^{
                          self.imageContainerView.frame = CGRectMake(self.imageContainerView.frame.origin.x, self.containerView.frame.origin.y + self.containerView.frame.size.height - SUBTLE_OFFSET, self.imageView.frame.size.width, self.imageContainerView.frame.size.height);
                      }];
-    [self performSelector:@selector(restoreTouch:) withObject:nil afterDelay:(NSTimeInterval)1.0];
+    [self performSelector:@selector(restoreTouch:) withObject:nil afterDelay:(NSTimeInterval)ANIMATION_DURATION];
 }
 
 -(void)showShadow
@@ -296,12 +309,12 @@ NSMutableArray *comments;
 -(void) hideAnimation
 {
     self.view.userInteractionEnabled = NO;
-    [UIView animateWithDuration:1.0
+    [UIView animateWithDuration:ANIMATION_DURATION
                      animations:^{
                          self.imageContainerView.frame = CGRectMake(self.imageContainerView.frame.origin.x, -self.imageContainerView.frame.size.height, self.imageContainerView.frame.size.width, self.imageContainerView.frame.size.height);
                      }];
     
-    [self performSelector:@selector(hideShadow:) withObject:nil afterDelay:(NSTimeInterval)1.0];
+    [self performSelector:@selector(hideShadow:) withObject:nil afterDelay:(NSTimeInterval)ANIMATION_DURATION];
 }
 
 -(void)hideShadow:(NSObject *)object
