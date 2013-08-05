@@ -274,10 +274,12 @@ NSMutableArray *comments;
 -(void) showAnimation
 {
     [self showShadow];
+    self.view.userInteractionEnabled = NO;
     [UIView animateWithDuration:1.0
                      animations:^{
                          self.imageContainerView.frame = CGRectMake(self.imageContainerView.frame.origin.x, self.containerView.frame.origin.y + self.containerView.frame.size.height - SUBTLE_OFFSET, self.imageView.frame.size.width, self.imageContainerView.frame.size.height);
                      }];
+    [self performSelector:@selector(restoreTouch:) withObject:nil afterDelay:(NSTimeInterval)1.0];
 }
 
 -(void)showShadow
@@ -286,8 +288,14 @@ NSMutableArray *comments;
     self.tableView.userInteractionEnabled = NO;
 }
 
+-(void)restoreTouch:(NSObject *)object
+{
+    self.view.userInteractionEnabled = YES;
+}
+
 -(void) hideAnimation
 {
+    self.view.userInteractionEnabled = NO;
     [UIView animateWithDuration:1.0
                      animations:^{
                          self.imageContainerView.frame = CGRectMake(self.imageContainerView.frame.origin.x, -self.imageContainerView.frame.size.height, self.imageContainerView.frame.size.width, self.imageContainerView.frame.size.height);
@@ -300,6 +308,7 @@ NSMutableArray *comments;
 {
     [self.shadowLabel setHidden:YES];
     self.tableView.userInteractionEnabled = YES;
+    [self restoreTouch:nil];
 }
 
 @end
