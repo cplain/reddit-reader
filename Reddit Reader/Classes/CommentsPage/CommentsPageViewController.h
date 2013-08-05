@@ -22,6 +22,7 @@
 @property (nonatomic, retain) IBOutlet UIImageView *imageView;
 
 @property (nonatomic, retain) IBOutlet UILabel *imageLabel;
+@property (nonatomic, retain) IBOutlet UIView *imageContainerView;
 
 -(IBAction)topCommentTapped:(id)sender;
 

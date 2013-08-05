@@ -49,6 +49,9 @@
 		CFD4EBE91772797000FB9833 /* Reddit Reader-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CFD4EBE61772797000FB9833 /* Reddit Reader-Info.plist */; };
 		CFD4EBED177279E300FB9833 /* MainPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD4EBEB177279E300FB9833 /* MainPageViewController.m */; };
 		CFD4EBEE177279E300FB9833 /* MainPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFD4EBEC177279E300FB9833 /* MainPageViewController.xib */; };
+		CFE1B0A217AF1EE4007CF88A /* AnimatedGif.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE1B09D17AF1EE4007CF88A /* AnimatedGif.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CFE1B0A317AF1EE4007CF88A /* AnimatedGifExampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE1B09F17AF1EE4007CF88A /* AnimatedGifExampleAppDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CFE1B0A417AF1EE4007CF88A /* AnimatedGifExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE1B0A117AF1EE4007CF88A /* AnimatedGifExampleViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,6 +132,12 @@
 		CFD4EBEA177279E300FB9833 /* MainPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainPageViewController.h; path = Classes/MainPage/MainPageViewController.h; sourceTree = "<group>"; };
 		CFD4EBEB177279E300FB9833 /* MainPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainPageViewController.m; path = Classes/MainPage/MainPageViewController.m; sourceTree = "<group>"; };
 		CFD4EBEC177279E300FB9833 /* MainPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainPageViewController.xib; path = Classes/MainPage/MainPageViewController.xib; sourceTree = "<group>"; };
+		CFE1B09C17AF1EE4007CF88A /* AnimatedGif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedGif.h; sourceTree = "<group>"; };
+		CFE1B09D17AF1EE4007CF88A /* AnimatedGif.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatedGif.m; sourceTree = "<group>"; };
+		CFE1B09E17AF1EE4007CF88A /* AnimatedGifExampleAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedGifExampleAppDelegate.h; sourceTree = "<group>"; };
+		CFE1B09F17AF1EE4007CF88A /* AnimatedGifExampleAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatedGifExampleAppDelegate.m; sourceTree = "<group>"; };
+		CFE1B0A017AF1EE4007CF88A /* AnimatedGifExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedGifExampleViewController.h; sourceTree = "<group>"; };
+		CFE1B0A117AF1EE4007CF88A /* AnimatedGifExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatedGifExampleViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,6 +317,7 @@
 		CFD4EBB6177275F000FB9833 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CFE1B09B17AF1EE4007CF88A /* AnimatedGif */,
 				CF2CD9F617741C3B005E62D9 /* ASI */,
 				CF048DA317729DCC00ECA9EA /* JSON */,
 				CF2CDA1B17741F91005E62D9 /* libz.dylib */,
@@ -372,6 +382,20 @@
 			children = (
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		CFE1B09B17AF1EE4007CF88A /* AnimatedGif */ = {
+			isa = PBXGroup;
+			children = (
+				CFE1B09C17AF1EE4007CF88A /* AnimatedGif.h */,
+				CFE1B09D17AF1EE4007CF88A /* AnimatedGif.m */,
+				CFE1B09E17AF1EE4007CF88A /* AnimatedGifExampleAppDelegate.h */,
+				CFE1B09F17AF1EE4007CF88A /* AnimatedGifExampleAppDelegate.m */,
+				CFE1B0A017AF1EE4007CF88A /* AnimatedGifExampleViewController.h */,
+				CFE1B0A117AF1EE4007CF88A /* AnimatedGifExampleViewController.m */,
+			);
+			name = AnimatedGif;
+			path = "Reddit Reader/External/AnimatedGif";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -469,6 +493,9 @@
 				CF23FF361780FEE3006F1136 /* ThreadTableViewCell.m in Sources */,
 				CF23FF3D178105BF006F1136 /* CommentTableViewCell.m in Sources */,
 				CF23FFEA17869D9D006F1136 /* Comment.m in Sources */,
+				CFE1B0A217AF1EE4007CF88A /* AnimatedGif.m in Sources */,
+				CFE1B0A317AF1EE4007CF88A /* AnimatedGifExampleAppDelegate.m in Sources */,
+				CFE1B0A417AF1EE4007CF88A /* AnimatedGifExampleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
