@@ -86,16 +86,22 @@ UIImageView *gifView;
 
 -(void)loadThread
 {
-    self.threadName.text = self.thread.threadName;
-    self.containerView.frame = CGRectMake(self.containerView.frame.origin.x, self.containerView.frame.origin.y, self.containerView.frame.size.width, self.threadName.contentSize.height + SUBTLE_OFFSET);
-    self.tableView.frame = CGRectMake(self.tableView.frame.origin.x, self.containerView.frame.origin.y + self.containerView.frame.size.height - SUBTLE_OFFSET, self.tableView.frame.size.width, self.view.frame.size.height - self.containerView.frame.size.height + SUBTLE_OFFSET);
-    self.imageContainerView.frame = CGRectMake(self.imageContainerView.frame.origin.x, -(self.view.frame.size.height - self.containerView.frame.size.height + SUBTLE_OFFSET), self.imageContainerView.frame.size.width, self.view.frame.size.height - self.containerView.frame.size.height + SUBTLE_OFFSET);
+    [self positionViews];
+    [self hideShadow:nil];
     
     [myAlertView show];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:self.thread.url]];
     
     [request setDelegate:self];
     [request startAsynchronous];
+}
+
+-(void)positionViews
+{
+    self.threadName.text = self.thread.threadName;
+    self.containerView.frame = CGRectMake(self.containerView.frame.origin.x, self.containerView.frame.origin.y, self.containerView.frame.size.width, self.threadName.contentSize.height + SUBTLE_OFFSET);
+    self.tableView.frame = CGRectMake(self.tableView.frame.origin.x, self.containerView.frame.origin.y + self.containerView.frame.size.height - SUBTLE_OFFSET, self.tableView.frame.size.width, self.view.frame.size.height - self.containerView.frame.size.height + SUBTLE_OFFSET);
+    self.imageContainerView.frame = CGRectMake(self.imageContainerView.frame.origin.x, -(self.view.frame.size.height - self.containerView.frame.size.height + SUBTLE_OFFSET), self.imageContainerView.frame.size.width, self.view.frame.size.height - self.containerView.frame.size.height + SUBTLE_OFFSET);
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)request
