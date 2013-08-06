@@ -15,8 +15,9 @@
 @property(strong, nonatomic) IBOutlet UILabel *downvotes;
 @property(strong, nonatomic) IBOutlet UILabel *userName;
 @property(strong, nonatomic) IBOutlet UILabel *additionalDetail;
-@property(strong, nonatomic) NSMutableArray *comments;
+@property(nonatomic) BOOL hasComments;
 
+@property(strong, nonatomic)IBOutlet UILabel *highlightField;
 @property(strong, nonatomic) IBOutlet UIView *containerView;
 
 @end

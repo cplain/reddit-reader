@@ -15,15 +15,28 @@
 @synthesize additionalDetail;
 @synthesize upvotes;
 @synthesize downvotes;
-@synthesize comments;
+@synthesize hasComments;
 @synthesize containerView;
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+-(void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-    }
-    return self;
+    [self highlightView:selected];
 }
 
+-(void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated
+{
+    [self highlightView:highlighted];
+}
+
+-(void)highlightView:(BOOL)selected
+{
+    if(selected && self.hasComments)
+    {
+        [self.highlightField setBackgroundColor:[UIColor colorWithRed:(5.0f/255.0f) green:(111.0f/255.0f) blue:(255.0f/255.0f) alpha:1.0f]];
+    }
+    else
+    {
+        [self.highlightField setBackgroundColor:[UIColor colorWithRed:(225.0f/255.0f) green:(225.0f/255.0f) blue:(225.0f/255.0f) alpha:1.0f]];
+    }
+}
 @end

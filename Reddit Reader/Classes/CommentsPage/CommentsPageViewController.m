@@ -268,8 +268,7 @@ UIImageView *gifView;
     cell.upvotes.text =  [NSString stringWithFormat:@"%@", comment.upvotes] ;
     cell.downvotes.text = [NSString stringWithFormat:@"%@", comment.downvotes];
     cell.userName.text = comment.author;
-    cell.comments = comment.comments;
-    
+    cell.hasComments = comment.comments != nil;
     return cell;
 }
 
@@ -303,7 +302,7 @@ UIImageView *gifView;
 
 -(void)expand:(Comment *) comment atIndex:(int)index
 {
-    if ([comment.comments count] == 0) return;
+    if ([comment.comments count] == 0 || comment.comments == nil) return;
     
     for (int i = 0; i < [comment.comments count]-1; i++)
         [comments insertObject:[comment.comments objectAtIndex:i] atIndex:(index + 1 + i)];

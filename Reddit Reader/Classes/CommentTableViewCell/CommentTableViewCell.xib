@@ -370,6 +370,14 @@
 					</object>
 					<int key="connectionID">532</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">highlightField</string>
+						<reference key="source" ref="423071941"/>
+						<reference key="destination" ref="396268398"/>
+					</object>
+					<int key="connectionID">533</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -468,7 +476,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">532</int>
+			<int key="maxID">533</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -479,6 +487,7 @@
 						<string key="additionalDetail">UILabel</string>
 						<string key="containerView">UIView</string>
 						<string key="downvotes">UILabel</string>
+						<string key="highlightField">UILabel</string>
 						<string key="mainTextView">UITextView</string>
 						<string key="upvotes">UILabel</string>
 						<string key="userName">UILabel</string>
@@ -494,6 +503,10 @@
 						</object>
 						<object class="IBToOneOutletInfo" key="downvotes">
 							<string key="name">downvotes</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="highlightField">
+							<string key="name">highlightField</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="mainTextView">
