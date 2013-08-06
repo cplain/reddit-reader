@@ -31,15 +31,19 @@ NSInteger selectedSegment = 0;
     [super viewDidLoad];
     [self setUpSubredditSelector];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    
-    [self.navigationItem.backBarButtonItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIColor blackColor], UITextAttributeTextColor, [UIColor clearColor], UITextAttributeTextShadowColor, nil] forState:UIControlStateNormal];
-    
-    [self.navigationItem.backBarButtonItem setTintColor:[UIColor blackColor]];
+    [self configBackButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [self recieveJSON];
+}
+
+-(void)configBackButton
+{
+    [self.navigationItem.backBarButtonItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIColor blackColor], UITextAttributeTextColor, [UIColor clearColor], UITextAttributeTextShadowColor, nil] forState:UIControlStateNormal];
+    
+    [self.navigationItem.backBarButtonItem setTintColor:[UIColor blackColor]];
 }
 
 -(void)setUpSubredditSelector
@@ -68,8 +72,7 @@ NSInteger selectedSegment = 0;
     if (_subredditSelectorPopover == nil)
     {
         _subredditSelectorPopover = [[UIPopoverController alloc] initWithContentViewController:_subredditSelector];
-        [_subredditSelectorPopover presentPopoverFromBarButtonItem:(UIBarButtonItem *)sender
-                                          permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+        [_subredditSelectorPopover presentPopoverFromBarButtonItem:(UIBarButtonItem *)sender permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     }
     else
     {
@@ -87,6 +90,13 @@ NSInteger selectedSegment = 0;
 
 -(void)recieveJSON
 {
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[self getUrl]]];
+    [request setDelegate:self];
+    [request startAsynchronous];
+}
+
+-(NSString *)getUrl
+{
     NSString *url;
     
     if ([subreddit isEqualToString:@""])
@@ -94,11 +104,7 @@ NSInteger selectedSegment = 0;
     else
         url = [NSString stringWithFormat:@"http://www.reddit.com/r/%@/%@.json" , subreddit, [self getViewCat]];
     
-    NSLog(@"URL: %@", url);    
-
-    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:url]];
-    [request setDelegate:self];
-    [request startAsynchronous];
+    return url;
 }
 
 -(NSString *)getViewCat
@@ -118,41 +124,6 @@ NSInteger selectedSegment = 0;
     }
 }
 
--(void)populateList
-{
-    NSDictionary *tempDict;
-    Thread *tempThread;
-    threads = [NSMutableArray array];
-    
-    for(int i = 0; i < [mainDataArray count]; i++)
-    {
-        tempThread = [[Thread alloc] init];
-        tempDict = [[mainDataArray objectAtIndex:i]valueForKey:@"data"];
-        
-        tempThread.threadName = [tempDict valueForKey:@"title"];
-        tempThread.upvotes = [tempDict valueForKey:@"ups"];
-        tempThread.downvotes = [tempDict valueForKey:@"downs"];
-        tempThread.comments = [tempDict valueForKey:@"num_comments"];
-        tempThread.url = [NSString stringWithFormat:@"http://www.reddit.com%@.json",[tempDict valueForKey:@"permalink"]];
-        tempThread.imageURL = [tempDict valueForKey:@"url"];
-        
-        [threads addObject:tempThread];
-    }
-    
-    [self.tableView reloadData];
-    
-    if ([subreddit isEqualToString:@""])
-        self.title = @"reddit.com";
-    else
-        self.title = [NSString stringWithFormat:@"/r/%@", subreddit];
-    
-    if ([threads count] == 0)
-        [self showRefreshDialog];
-    
-    else if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad && [_delegate needsContent] )
-        [self selectFirstRow];
-}
-
 -(void)showRefreshDialog
 {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops!" message:@"Looks like we didn't recieve anything from that subreddit"
@@ -165,22 +136,7 @@ NSInteger selectedSegment = 0;
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    switch (buttonIndex) {
-            
-        case 1:
-            [self recieveJSON];
-            break;
-            
-        default:
-            break;
-    }
-}
-
--(void)selectFirstRow
-{
-    NSIndexPath *indexPath=[NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
-    [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
+    [self recieveJSON];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -240,6 +196,55 @@ NSInteger selectedSegment = 0;
     mainDataArray = [[data valueForKey:@"data"] valueForKey:@"children"];
 
     [self populateList];
+    [self configTitle];
+    [self confirmListPopulated];
+}
+
+-(void)populateList
+{
+    threads = [NSMutableArray array];
+    
+    for(int i = 0; i < [mainDataArray count]; i++)
+        [threads addObject:[self loadThread:[[mainDataArray objectAtIndex:i]valueForKey:@"data"]]];
+    
+    [self.tableView reloadData];
+}
+
+-(Thread *)loadThread:(NSDictionary *)threadDict
+{
+    Thread *tempThread = [[Thread alloc] init];
+    tempThread.threadName = [threadDict valueForKey:@"title"];
+    tempThread.upvotes = [threadDict valueForKey:@"ups"];
+    tempThread.downvotes = [threadDict valueForKey:@"downs"];
+    tempThread.comments = [threadDict valueForKey:@"num_comments"];
+    tempThread.url = [NSString stringWithFormat:@"http://www.reddit.com%@.json",[threadDict valueForKey:@"permalink"]];
+    tempThread.imageURL = [threadDict valueForKey:@"url"];
+    
+    return tempThread;
+}
+
+-(void)configTitle
+{
+    if ([subreddit isEqualToString:@""])
+        self.title = @"reddit.com";
+    else
+        self.title = [NSString stringWithFormat:@"/r/%@", subreddit];
+}
+
+-(void)confirmListPopulated
+{
+    if ([threads count] == 0)
+        [self showRefreshDialog];
+    
+    else if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad && [_delegate needsContent] )
+        [self selectFirstRow];
+}
+
+-(void)selectFirstRow
+{
+    NSIndexPath *indexPath=[NSIndexPath indexPathForRow:0 inSection:0];
+    [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
+    [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request
